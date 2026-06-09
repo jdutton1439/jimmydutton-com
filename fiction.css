@@ -12,8 +12,8 @@
 .card {
   display: block;
   text-decoration: none;
-  background-color: #6dc1a5;
-  border: 1px solid #5aaa8e;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 3px;
   padding: var(--space-md) var(--space-lg);
   transition: background-color var(--transition-fast),
@@ -21,8 +21,8 @@
 }
 
 .card:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #6dc1a5;
+  border-color: #5aaa8e;
 }
 
 .card-title {
