@@ -121,6 +121,8 @@ body {
   font-family:      var(--font-body);
   font-size:        var(--font-size-base);
   line-height:      var(--line-height-body);
+   
+  min-height:       100vh;
 
   /* Subtle font rendering improvements */
   -webkit-font-smoothing:  antialiased;
