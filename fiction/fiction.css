@@ -1,4 +1,55 @@
 /* ------------------------------------------------------------
+   CARD GRID
+   ------------------------------------------------------------ */
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  background-color: #6dc1a5;
+  border: 1px solid #5aaa8e;
+  border-radius: 3px;
+  padding: var(--space-md) var(--space-lg);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.card:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.card-title {
+  font-family: var(--font-header);
+  font-size: var(--scale-lg);
+  color: #12090f;
+  margin-bottom: var(--space-xs);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .card-title {
+  color: var(--color-background);
+}
+
+.card-description {
+  font-size: var(--scale-sm);
+  color: #12090f;
+  margin-bottom: 0;
+  opacity: 0.8;
+  transition: color var(--transition-fast);
+}
+
+.card:hover .card-description {
+  color: var(--color-background);
+}
+
+/* ------------------------------------------------------------
    POST LAYOUT
    ------------------------------------------------------------ */
 
