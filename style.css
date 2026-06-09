@@ -1,0 +1,400 @@
+/* ============================================================
+   jimmydutton.com — Base Stylesheet
+   ============================================================
+   All design tokens are defined as CSS custom properties
+   in :root. To change any color, font, or scale value,
+   edit it here once and it updates everywhere.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   GOOGLE FONTS IMPORT
+   Caveat: handwritten header font (replace with custom font later)
+   DM Mono: monospaced body font
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+
+/* ------------------------------------------------------------
+   DESIGN TOKENS
+   ------------------------------------------------------------ */
+:root {
+
+  /* Colors */
+  --color-background: #211a20;
+  --color-primary:    #e1a24a;   /* orange-gold: headings, highlights */
+  --color-secondary:  #903c18;   /* burnt sienna: decorative, borders */
+  --color-accent:     #6dc1a5;   /* muted teal: links, interactive */
+  --color-text:       #ede0c8;   /* warm cream: all body text */
+
+  /* Fonts */
+  --font-header: 'Caveat', cursive;         /* swap @import + this when custom font is ready */
+  --font-body:   'DM Mono', monospace;
+
+  /* Type Scale — Custom (1.218
+     Base: 16px
+     xs:   ~10px  (1rem)
+     sm:   ~12px  (1.218rem)
+     md:   16px   (1.484rem)      ← base
+     lg:   ~21px  (1.807rem)
+     xl:   ~28px  (2.201rem)
+     2xl:  ~38px  (2.681rem)
+     3xl:  ~51px  (3.25rem) */
+  --scale-xs:  1rem;
+  --scale-sm:  1.218rem;
+  --scale-md:  1.484rem;
+  --scale-lg:  1.807rem;
+  --scale-xl:  2.201rem;
+  --scale-2xl: 2.681rem;
+  --scale-3xl: 3.25rem;
+
+  /* Spacing — loosely tied to scale for rhythm */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+
+  /* Typography */
+  --font-size-base:   var(--scale-xs);   /* 16px */
+  --line-height-body: 1.7;               /* comfortable for dyslexia-friendly reading */
+  --line-height-head: 1.2;               /* tighter for large display text */
+  --max-width-prose:  68ch;              /* ~65–70 chars per line: optimal for readability */
+
+  /* Interactive */
+  --caret-color: var(--color-primary);   /* orange cursor in text inputs */
+  --focus-color: var(--color-accent);    /* teal outline on keyboard focus */
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-med:  300ms ease;
+}
+
+
+/* ------------------------------------------------------------
+   RESET & BOX MODEL
+   A minimal reset — removes browser inconsistencies without
+   being as aggressive as a full normalize.
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation on mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Smooth scrolling unless user prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for form elements (browsers don't do this by default) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* ------------------------------------------------------------
+   BASE STYLES
+   ------------------------------------------------------------ */
+body {
+  background-color: var(--color-background);
+  color:            var(--color-text);
+  font-family:      var(--font-body);
+  font-size:        var(--font-size-base);
+  line-height:      var(--line-height-body);
+
+  /* Subtle font rendering improvements */
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ------------------------------------------------------------
+   TYPOGRAPHY
+   ------------------------------------------------------------ */
+
+/* Headings use Caveat (later: your handwriting font) */
+h1, h2, h3, h4, h5, h6 {
+  font-family:  var(--font-header);
+  line-height:  var(--line-height-head);
+  color:        var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+h1 { font-size: var(--scale-3xl); }
+h2 { font-size: var(--scale-2xl); }
+h3 { font-size: var(--scale-xl);  }
+h4 { font-size: var(--scale-lg);  }
+h5 { font-size: var(--scale-md);  }
+h6 { font-size: var(--scale-sm);  }
+
+p {
+  margin-bottom: var(--space-sm);
+  max-width:     var(--max-width-prose);
+}
+
+/* Remove bottom margin from last child to avoid double spacing */
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  color:       var(--color-primary);
+  font-weight: 500;
+}
+
+em {
+  font-style: italic;
+  color:      var(--color-text); /* keep readable, don't shift color */
+}
+
+small {
+  font-size: var(--scale-sm);
+  color:     color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+
+/* Horizontal rule — uses secondary color as a subtle divider */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-secondary);
+  margin: var(--space-lg) 0;
+  opacity: 0.5;
+}
+
+
+/* ------------------------------------------------------------
+   LINKS
+   ------------------------------------------------------------ */
+a {
+  color:           var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;  /* lifts underline off baseline slightly */
+  transition:      color var(--transition-fast),
+                   text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  color:                  var(--color-primary);
+  text-decoration-color:  var(--color-primary);
+}
+
+/* Visible keyboard focus — important for accessibility */
+a:focus-visible {
+  outline:        2px solid var(--focus-color);
+  outline-offset: 3px;
+  border-radius:  2px;
+}
+
+
+/* ------------------------------------------------------------
+   LAYOUT
+   ------------------------------------------------------------ */
+
+/* Main site wrapper — centers content, adds breathing room */
+.container {
+  width:     100%;
+  max-width: 75ch;              /* slightly wider than prose for layout flexibility */
+  margin:    0 auto;
+  padding:   0 var(--space-md);
+}
+
+/* Prose content — tighter max-width for readable line length */
+.prose {
+  max-width: var(--max-width-prose);
+}
+
+header {
+  padding:       var(--space-lg) 0 var(--space-md);
+  border-bottom: 1px solid var(--color-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+main {
+  padding:       var(--space-md) 0;
+  min-height:    60vh;          /* keeps footer from floating up on sparse pages */
+}
+
+footer {
+  padding:       var(--space-lg) 0 var(--space-md);
+  border-top:    1px solid var(--color-secondary);
+  margin-top:    var(--space-xl);
+  font-size:     var(--scale-sm);
+  color:         color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+
+/* ------------------------------------------------------------
+   NAVIGATION
+   ------------------------------------------------------------ */
+nav {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+nav a {
+  text-decoration: none;
+  font-size:       var(--scale-sm);
+  letter-spacing:  0.05em;
+  text-transform:  uppercase;
+  color:           var(--color-text);
+  transition:      color var(--transition-fast);
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+
+/* ------------------------------------------------------------
+   INTERACTIVE ELEMENTS
+   ------------------------------------------------------------ */
+
+/* Text inputs and textareas */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+textarea {
+  background-color: color-mix(in srgb, var(--color-background) 80%, var(--color-text) 20%);
+  color:            var(--color-text);
+  border:           1px solid var(--color-secondary);
+  border-radius:    2px;
+  padding:          var(--space-xs) var(--space-sm);
+  width:            100%;
+  caret-color:      var(--caret-color);   /* orange cursor */
+  transition:       border-color var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="search"]:focus,
+textarea:focus {
+  outline:      none;
+  border-color: var(--color-accent);
+  box-shadow:   0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+/* Buttons */
+button,
+.button {
+  background-color: transparent;
+  color:            var(--color-primary);
+  border:           1px solid var(--color-primary);
+  border-radius:    2px;
+  padding:          var(--space-xs) var(--space-md);
+  cursor:           pointer;
+  font-family:      var(--font-body);
+  font-size:        var(--scale-sm);
+  letter-spacing:   0.05em;
+  text-transform:   uppercase;
+  transition:       background-color var(--transition-fast),
+                    color            var(--transition-fast);
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--color-primary);
+  color:            var(--color-background);
+}
+
+button:focus-visible,
+.button:focus-visible {
+  outline:        2px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+
+/* ------------------------------------------------------------
+   CODE & PREFORMATTED TEXT
+   (relevant for the text game page later)
+   ------------------------------------------------------------ */
+code,
+pre {
+  font-family: var(--font-body);   /* already monospaced, stays consistent */
+  font-size:   var(--scale-sm);
+  background:  color-mix(in srgb, var(--color-background) 60%, var(--color-text) 10%);
+  border:      1px solid color-mix(in srgb, var(--color-secondary) 50%, transparent);
+  border-radius: 2px;
+}
+
+code {
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  padding:    var(--space-md);
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent;
+  border:     none;
+  padding:    0;
+}
+
+
+/* ------------------------------------------------------------
+   UTILITY CLASSES
+   ------------------------------------------------------------ */
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position:   absolute;
+  width:      1px;
+  height:     1px;
+  padding:    0;
+  margin:     -1px;
+  overflow:   hidden;
+  clip:       rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border:     0;
+}
+
+.text-primary   { color: var(--color-primary);   }
+.text-secondary { color: var(--color-secondary); }
+.text-accent    { color: var(--color-accent);    }
+.text-muted     { color: color-mix(in srgb, var(--color-text) 60%, transparent); }
+
+.text-sm  { font-size: var(--scale-sm); }
+.text-lg  { font-size: var(--scale-lg); }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   Mobile-first: base styles are for small screens.
+   This block adjusts for larger viewports.
+   ------------------------------------------------------------ */
+@media (min-width: 640px) {
+  :root {
+    --font-size-base: 1rem;   /* holds at 16px — adjust here if you want larger on desktop */
+  }
+
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
