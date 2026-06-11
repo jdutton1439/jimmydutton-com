@@ -42,14 +42,14 @@
   --font-header: 'Caveat', cursive;
   --font-body: 'DM Mono', monospace;
 
-  /*Type Scale*/
+  /*Type Scale = 1.218*/
   --scale-text-default: 1rem;
   --scale-1xl: 1.218rem;
   --scale-2xl: 1.484rem;
   --scale-3xl: 1.807rem;
   --scale-4xl: 2.201rem;
   --scale-5xl: 2.681rem;
-  --scale-6xl: 3.250rem;
+  --scale-6xl: 4.821rem;
 
   /*Line Heights and Measure*/
   --line-height-header: 1.2;
