@@ -1,26 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Jimmy Dutton</title>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1>Jimmy Dutton</h1>
-                <nav>
-                    <a href="/" aria-current="page">Home</a>
-                    <a href="/fiction/">Fiction</a>
-                    <a href="/criticism/">Criticism</a>
-                    <a href="/poetry/">Poetry</a>
-                </nav>
-            </header>
-            <h5>Welcome</h5>
-            <p>site currently under construction</p>
-            <footer>
-                <p>&copy; Jimmy Dutton, 2026. All rights reserved.</p>
-                <p>Jimmy is a writer and amateur farmer, pursuing an MFA in Creative Writing at Southern New Hampshire University. His debut novel explores themes of masculinity and inherited trauma, blending the violence and moral rot of the Southern Gothic with the weary optimism of the folk tradition. He lives in Van Buren, Arkansas with his wife Casey and their two cats and six chickens.</p>
-            </footer>
-        </div>
-    </body>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet">
+    <title>Jimmy Dutton</title>
+</head>
+
+<body>
+    <a href="#maincontent" class="skip-link">Skip to main content.</a>
+    
+    <header>
+        <h1>Jimmy Dutton</h1>
+        <nav> <!-- Row of bare nav links that suit my preferred visuals -->
+            <a href="/" aria-current="page">Home</a>
+            <a href="/fiction">Fiction</a>
+            <a href="/nonfiction">Non-Fiction</a>
+            <a href="/poetry">Poetry</a>
+        </nav>
+    </header>
+
+    <main id="maincontent">
+        <section aria-labelledby="manifesto">
+            <h2 id="manifesto">Raised in the dirt.</h2>
+            <p>Having is easy. Having is a click away. We've traded the bittersweet flavor of a fresh-picked strawberry for a packaged and shipped simulacrum. I'm growing the former.</p>
+        </section>
+        <section aria-labelledby="whats-new">
+            <h2 id="whats-new">What's New</h2>
+            <ul class="cards">
+                <li>
+                    <a href="/fiction/one-part-bourbon" class="card">
+                        <span class="card-label">Fiction</span>
+                        <span class="card-title">One Part Bourbon</span>
+                        <span class="card-desc">November's always the coldest.</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section aria-labelledby="about">
+            <h2 id="about">About</h2>
+            <p>Jimmy is a writer and amateur farmer, pursuing an MFA in Creative Writing at Southern New Hampshire University. His debut novel explores themes of masculinity and inherited trauma, blending the violence and moral rot of the Southern Gothic with the weary optimism of the folk tradition. He lives in Van Buren, Arkansas with his wife Casey and their two cats and six chickens.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Jimmy Dutton, 2026. All rights reserved.</p>
+    </footer>
+</body>
 </html>
