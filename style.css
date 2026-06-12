@@ -227,16 +227,18 @@ a:focus-visible {
 
 .poem-date {
   font-weight: 500;
-  color: var(--color-sienna);
+  color: var(--color-accent-sienna);
 }
 
 .table-of-contents {
   width: fit-content;
   margin: 0;
-  padding: 1.5rem;
+  padding: 4.5rem;
 }
 
 .wordmark {
+  color: var(--color-attention);
   font-family: var(--font-header);
   font-size: var(--scale-wordmark);
+  text-decoration: none;
 }
