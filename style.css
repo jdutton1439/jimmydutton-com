@@ -196,6 +196,7 @@ a:focus-visible {
   list-style: none;
   display: grid;
   gap: 1rem;
+  justify-items: center;
 }
 
 .card {
@@ -206,6 +207,7 @@ a:focus-visible {
   background-color: var(--color-attention);
   color: var(--color-background);
   transition: background-color 250ms ease;
+  max-width: 40ch;
 }
 
 .card:hover, .card:focus-visible {
