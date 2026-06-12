@@ -50,6 +50,7 @@
   --scale-4xl: 2.201rem;
   --scale-5xl: 2.681rem;
   --scale-6xl: 4.821rem;
+  --scale-wordmark: 7.152rem;
 
   /*Line Heights and Measure*/
   --line-height-header: 1.2;
@@ -113,8 +114,8 @@ footer {
 }
 
 section {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -151,6 +152,15 @@ h5 {
 
 h6 {
   font-size: var(--scale-1xl);
+}
+
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+pre {
+  font-family: var(--font-body);
 }
 
 a {
@@ -213,4 +223,20 @@ a:focus-visible {
 
 .card-title {
   font-style: italic;
+}
+
+.poem-date {
+  font-weight: 500;
+  color: var(--color-sienna);
+}
+
+.table-of-contents {
+  width: fit-content;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-header);
+  font-size: var(--scale-wordmark);
 }
