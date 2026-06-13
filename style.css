@@ -136,6 +136,8 @@ h1 {
 
 h2 {
   font-size: var(--scale-5xl);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
@@ -176,6 +178,10 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--color-accent-teal);
   outline-offset: 3px;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 .skip-link {
