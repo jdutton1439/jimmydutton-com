@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="/style.css">
-        <link rel="stylesheet" href="/fiction.css">
-        <title>Jimmy Dutton - Fiction</title>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1>Jimmy Dutton</h1>
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/fiction/" aria-current="page">Fiction</a>
-                    <a href="/criticism/">Criticism</a>
-                    <a href="/poetry/">Poetry</a>
-                </nav>
-            </header>
-            <main>
-                <div class="card-grid">
-                    <a href="/fiction/one-part-bourbon.html" class="card">
-                        <h3 class="card-title">One Part Bourbon</h3>
-                        <p class="card-description">November's always the coldest.</p>
-                    </a>
-                </div>
-            </main>
-            <footer>
-                <p>&copy; Jimmy Dutton, 2026. All rights reserved.</p>
-            </footer>
-        </div>
-    </body>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet">
+    <title>Fiction - Jimmy Dutton</title>
+</head>
+
+<body>
+    <a href="#maincontent" class="skip-link">Skip to main content.</a>
+    
+    <header>
+        <a href="/" class="wordmark">Jimmy Dutton</a>
+        <nav> <!-- Row of bare nav links that suit my preferred visuals -->
+            <a href="/fiction" aria-current="page">Fiction</a>
+            <a href="/nonfiction">Non-Fiction</a>
+            <a href="/poetry">Poetry</a>
+        </nav>
+    </header>
+
+    <main id="maincontent">
+        <h1>Fiction</h1>
+        <p>Selected works and excerpts.</p>
+        <section aria-labelledby="stories">
+            <h2 id="stories">Stories</h2>
+            <ul class="story-list">
+                <li class="story-item">
+                    <h3><a href="/fiction/one-part-bourbon" class="story-title">One Part Bourbon</a></h3>
+                    <p class="first-line-desc">November's always the coldest.</p>
+                    <p class="post-date"><time datetime="2023-11-03">November 03, 2023</time></p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Jimmy Dutton, 2026. All rights reserved.</p>
+    </footer>
+</body>
 </html>
