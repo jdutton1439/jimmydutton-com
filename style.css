@@ -237,6 +237,11 @@ p {
   font-style: italic;
 }
 
+.loud {
+  font-size: var(--scale-2xl);
+  color: var(--color-accent-sienna);
+}
+
 .post-date {
   font-weight: 500;
   color: var(--color-accent-sienna);
@@ -257,6 +262,7 @@ p {
 
 .story p:first-of-type::first-letter {
   initial-letter: 2;
+  font-family: var(--font-header);
 }
 
 .story-list {
