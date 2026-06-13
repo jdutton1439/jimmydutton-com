@@ -242,6 +242,18 @@ p {
   color: var(--color-accent-sienna);
 }
 
+.story-list {
+  list-style: none;
+}
+
+.story-item {
+  border-left: 8px solid var(--color-accent-sienna);
+}
+
+.story-title {
+  color: var(--color-attention);
+}
+
 .table-of-contents {
   width: fit-content;
   margin: 0;
