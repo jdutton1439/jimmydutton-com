@@ -242,6 +242,23 @@ p {
   color: var(--color-accent-sienna);
 }
 
+.story p {
+  margin-bottom: 0;
+  text-indent: 4ch;
+}
+
+.story p:first-of-type {
+  text-indent: 0;
+}
+
+.story hr + p {
+  text-indent: 0;
+}
+
+.story p:first-of-type::first-letter {
+  initial-letter: 2;
+}
+
 .story-list {
   list-style: none;
 }
