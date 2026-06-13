@@ -240,6 +240,9 @@ p {
 .loud {
   font-size: var(--scale-2xl);
   color: var(--color-accent-sienna);
+  text-indent: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post-date {
