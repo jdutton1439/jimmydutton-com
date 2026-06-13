@@ -138,6 +138,9 @@ h2 {
   font-size: var(--scale-5xl);
   margin-top: 3rem;
   margin-bottom: 1rem;
+  border-bottom: 1px solid;
+  width: fit-content;
+  padding-bottom: 1rem;
 }
 
 h3 {
