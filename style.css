@@ -237,7 +237,7 @@ p {
   font-style: italic;
 }
 
-.poem-date {
+.post-date {
   font-weight: 500;
   color: var(--color-accent-sienna);
 }
