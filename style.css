@@ -70,6 +70,7 @@ nav {
   flex-wrap: wrap;
   margin-top: 1rem;
   text-transform: uppercase;
+  align-items: center;
 }
 
 nav a {
