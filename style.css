@@ -84,6 +84,11 @@ nav a[aria-current="page"] {
   color: var(--color-attention);
 }
 
+nav span {
+  color: var(--color-accent-teal);
+  font-size: var(--scale-1xl);
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
