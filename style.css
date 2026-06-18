@@ -254,6 +254,11 @@ p {
   color: var(--color-accent-sienna);
 }
 
+.satire-author-note {
+  border-top: 1px solid var(--color-accent-sienna);
+  padding-top: 1.5rem;
+}
+
 .story p {
   margin-bottom: 0;
   text-indent: 4ch;
