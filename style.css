@@ -103,7 +103,7 @@ body {
 }
 
 header, main, footer {
-  max-width: var(--line-measure);
+  width: var(--line-measure);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
