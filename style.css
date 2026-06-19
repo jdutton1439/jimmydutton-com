@@ -222,7 +222,6 @@ blockquote {
   list-style: none;
   display: grid;
   gap: 1rem;
-  justify-items: center;
   grid-template-columns: 1fr;
 }
 
@@ -234,7 +233,6 @@ blockquote {
   background-color: var(--color-attention);
   color: var(--color-background);
   transition: background-color 250ms ease;
-  max-width: 40ch;
   width: 100%;
 }
 
