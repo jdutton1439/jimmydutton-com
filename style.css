@@ -235,6 +235,7 @@ blockquote {
   color: var(--color-background);
   transition: background-color 250ms ease;
   max-width: 40ch;
+  width: 100%;
 }
 
 .card:hover, .card:focus-visible {
