@@ -222,7 +222,8 @@ blockquote {
   list-style: none;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 40ch;
+  justify-content: center;
 }
 
 .card {
@@ -233,7 +234,6 @@ blockquote {
   background-color: var(--color-attention);
   color: var(--color-background);
   transition: background-color 250ms ease;
-  width: 100%;
 }
 
 .card:hover, .card:focus-visible {
