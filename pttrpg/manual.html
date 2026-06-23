@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PKTTRPG — Field Manual</title>
+<meta name="description" content="The complete tabletop manual for PKTTRPG: a MOBA-style Pokémon TTRPG. Rules, lore, conversion tables, and hand-runnable algorithms for every JS-dependent tool.">
+</head>
+
+<body class="manual manual-root">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- COVER                                                                -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<header class="manual-header cover-page" id="cover">
+  <p class="cover-eyebrow">Tabletop Field Manual · First Playtest Printing</p>
+  <h1 class="manual-title">PKTTRPG</h1>
+  <p class="manual-subtitle">A MOBA-Tactical Pokémon Tabletop RPG</p>
+  <p class="manual-credits">Compiled from <cite>DESIGN_DOCUMENT.md</cite> (May 13, 2026 canonical revision) and the <cite>IMPLEMENTATION_WORKFLOW.md</cite> tracker.</p>
+  <nav class="cover-nav">
+    <a href="#index" class="nav-link nav-link-primary">→ Open the Index</a>
+  </nav>
+  <p class="cover-disclaimer"><em>Personal/Group use only — not affiliated with Nintendo, Game Freak, or The Pokémon Company.</em></p>
+</header>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- INDEX                                                                -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<nav id="index" class="index manual-index" aria-label="Table of contents">
+  <h2 class="index-title">Index of Chapters</h2>
+  <p class="index-blurb">Each chapter opens with a <em>status board</em> listing what is finished, in progress, and merely planned. Read those first when you want to know which rules are safe to run at the table and which still wear a paper coat.</p>
+
+  <ol class="index-list chapter-index">
+    <li class="index-entry"><a href="#ch-01">Chapter I — World &amp; Setting</a></li>
+    <li class="index-entry"><a href="#ch-02">Chapter II — Pokémon: Species, Stats &amp; Roles</a></li>
+    <li class="index-entry"><a href="#ch-03">Chapter III — Trainers &amp; Archetypes</a></li>
+    <li class="index-entry"><a href="#ch-04">Chapter IV — The Battle Round</a></li>
+    <li class="index-entry"><a href="#ch-05">Chapter V — Dice, Moves &amp; Damage</a></li>
+    <li class="index-entry"><a href="#ch-06">Chapter VI — The Jungle Layer</a></li>
+    <li class="index-entry"><a href="#ch-07">Chapter VII — Minion Waves &amp; the Field Behemoth</a></li>
+    <li class="index-entry"><a href="#ch-08">Chapter VIII — Capture &amp; Encounter</a></li>
+    <li class="index-entry"><a href="#ch-09">Chapter IX — Economy, Experience &amp; Evolution</a></li>
+  </ol>
+
+  <h3 class="index-subtitle">Appendices</h3>
+  <ol class="index-list appendix-index" type="A">
+    <li class="index-entry"><a href="#appendix-a">Appendix A — Video Game → PKTTRPG Conversion Tables</a></li>
+    <li class="index-entry"><a href="#appendix-b">Appendix B — Hand-Runnable Algorithms (no computer required)</a></li>
+    <li class="index-entry"><a href="#appendix-c">Appendix C — Open Questions &amp; Pending Reconciliation</a></li>
+    <li class="index-entry"><a href="#appendix-d">Appendix D — Glossary</a></li>
+  </ol>
+</nav>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER I — WORLD & SETTING                                          -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-world" id="ch-01">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter I</p>
+    <h2 class="chapter-title">World &amp; Setting</h2>
+    <p class="chapter-blurb">An eleven-node region, a quiet corporate conspiracy, and seven factions tugging at the same thread.</p>
+  </header>
+
+  <aside class="chapter-status" aria-label="Chapter status board">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> 11-node regional map; faction roster (7 groups); two-tier narrative (Tier 1 surface story / Tier 2 HAPPINY truth); plot mechanics scaffolding (Spirit Walk, Spinda Gate, Channeler Rumor System).</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Naming the unnamed nodes (CA, CF, CG); writing per-node encounter content; tightening the foreign-delegates plot arc.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Channeler rumor tables per node; Spinda Gate's daily-pattern key system; Spirit Walk danger mechanic (losing one's spirit to the Ghost Realm); Elite Four encounter at CG; HAPPINY Farms full questline.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — The Region</h3>
+    <p>The campaign takes place inside a node-based region of <strong>eleven named locations</strong>. Travel is point-to-point along marked routes; spaces between are wilderness. One direct gate is locked from the start, one city is barred until Badge 8, and one crossroads is throttled by Trevenant overgrowth until a specific questline resolves.</p>
+
+    <table class="lore-table region-table">
+      <caption class="table-caption">Table 1.1 — The Eleven Nodes</caption>
+      <thead><tr><th>Code</th><th>Name</th><th>Type</th><th>Gym / Badge</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>CH</td><td>Slush Rush City</td><td>City</td><td>Water (B1) + Ice (B8)</td><td>Starting city; bifurcated Gym.</td></tr>
+        <tr><td>CE</td><td>Holly Woods</td><td>City</td><td>Electric (B2)</td><td>Film industry hub; Spinda Win Casino.</td></tr>
+        <tr><td>CI</td><td>Silicobra Valley</td><td>City</td><td>Fairy (B3–5)</td><td>Gated by Spinda pattern key from CH.</td></tr>
+        <tr><td>CA</td><td><em>(unnamed)</em></td><td>Town</td><td>Fighting (B3–5)</td><td>Stuntmon training hub.</td></tr>
+        <tr><td>CF</td><td><em>(unnamed)</em></td><td>City</td><td>Dark (B3–5)</td><td>Dark Detectives office.</td></tr>
+        <tr><td>CC</td><td>Bluff City</td><td>City</td><td>Flying (B6)</td><td>Foreign Delegates base; one-way descent to CK.</td></tr>
+        <tr><td>CK</td><td>Valley of Life</td><td>City</td><td>Ghost (B7)</td><td>Anarchist Group; Spirit Walk learned here.</td></tr>
+        <tr><td>CG</td><td><em>(unnamed)</em></td><td>City</td><td>Elite Four (post-B8)</td><td>Ice Road access only.</td></tr>
+        <tr><td>TD</td><td><em>(unnamed)</em></td><td>Town</td><td>—</td><td>Farming town; planned HAPPINY-lobbied Grass Gym.</td></tr>
+        <tr><td>TB</td><td><em>(unnamed)</em></td><td>Town</td><td>—</td><td>Transit town; hidden HAPPINY Farm nearby.</td></tr>
+        <tr><td>TJ</td><td><em>(unnamed)</em></td><td>Crossroads</td><td>—</td><td>Overgrown blockade; planned HAPPINY-lobbied Fire Gym after clearance.</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subsection-heading">Special Routes</h4>
+    <p>The <strong>CH ↔ CI</strong> direct route requires a daily-changing Spinda pattern key bought from Spinda Win Casino. The <strong>CC → CK</strong> descent is one-way — a narrative commitment to the dark tier. The <strong>CH → CG Ice Road</strong> opens only after Badge 8. The <strong>TJ crossroads</strong> is blocked by Trevenant overgrowth and only clears after the CK Gym storyline resolves.</p>
+
+    <h3 class="section-heading">§2 — The Two-Tier Narrative</h3>
+    <p>The campaign has two reading levels. Players see Tier 1 from the start; Tier 2 unlocks via the CK questline. <strong>Both tiers are canon simultaneously.</strong> Tier 2 does not retcon Tier 1 — it reveals what was always true.</p>
+
+    <h4 class="subsection-heading">Tier 1 — Surface Story</h4>
+    <blockquote class="lore-callout tier-1-callout">
+      <p>The Pokémon League is under strain. The CK Gym Leader has refused League authority and is associated with the Anarchist movement. HAPPINY Farms is a globally trusted non-profit operating every Pokémon Center on the planet, and it runs a respected "retirement" program for released Pokémon. The League is planning two new Gyms — Grass at TD, Fire at TJ — to round out regional coverage. Foreign Delegates have arrived at Bluff City, investigating something diplomatic.</p>
+    </blockquote>
+
+    <h4 class="subsection-heading">Tier 2 — The Hidden Truth</h4>
+    <blockquote class="lore-callout tier-2-callout">
+      <p>The retirement program is euthanization. Pokémon Centers are the intake funnel. Every release in this region is a death sentence. The pipeline runs Centers → Film Industry "retirement" referrals → HAPPINY Farm near TB → quiet disposal. The Foreign Delegates are not investigating the League; they are investigating HAPPINY. The two planned Gyms are HAPPINY-funded: TD's Grass Gym is meant to close the Foreign Delegate investigation, and TJ's Fire Gym is meant to destroy the CK sanctuary once the crossroads clears. The Anarchist movement may have known longer than anyone.</p>
+    </blockquote>
+
+    <h3 class="section-heading">§3 — Factions</h3>
+
+    <table class="lore-table faction-table">
+      <caption class="table-caption">Table 1.2 — The Seven Active Factions</caption>
+      <thead><tr><th>Faction</th><th>Alignment</th><th>Tier 1 Role</th><th>Tier 2 Role</th></tr></thead>
+      <tbody>
+        <tr><td>Pokémon League</td><td>Institutional / Reactionary</td><td>Governing body; removing the rogue CK leader.</td><td>Being lobbied; doesn't understand what it's suppressing.</td></tr>
+        <tr><td>HAPPINY Farms</td><td>Corporate / Malevolent (hidden)</td><td>Beloved global Center operator; retirement program.</td><td>Centers feed euthanization. Lobbying new Gyms to close investigations.</td></tr>
+        <tr><td>Anarchist Group</td><td>Radical / Sympathetic</td><td>Dangerous destabilizers.</td><td>May know more than anyone.</td></tr>
+        <tr><td>Foreign Delegates</td><td>Investigative / Allied</td><td>Observing the League situation.</td><td>Actually investigating HAPPINY.</td></tr>
+        <tr><td>Film Industry Group</td><td>Industry / Ambiguous</td><td>Produces Pokémon entertainment.</td><td>Refers "retired" performers into the pipeline (knowingly or not).</td></tr>
+        <tr><td>Dark Detectives</td><td>Neutral / Investigative</td><td>Private agency investigating missing actors.</td><td>Plot bridge to Tier 2; eventually points toward HAPPINY.</td></tr>
+        <tr><td>Spinda Win Casino</td><td>Commercial / Neutral</td><td>Holly Woods gambling establishment.</td><td>Spinda pattern key; rumor hub for the Channeler archetype.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§4 — Plot Mechanics</h3>
+    <dl class="plot-mechanic-list">
+      <dt class="plot-mechanic-term">Spirit Walk</dt>
+      <dd class="plot-mechanic-def">Learned after defeating the Ghost Gym at CK. Allows trainers and Pokémon to pass invisibly through certain gates and to enter the dimensional-bleed layer. Humans risk losing their spirit to the Ghost Realm — recovery is a side quest. Pokémon are unaffected. Core mechanic for the Channeler archetype's Secret Power trait.</dd>
+
+      <dt class="plot-mechanic-term">Spinda Gate</dt>
+      <dd class="plot-mechanic-def">The direct CH↔CI route is locked behind a daily-changing Spinda pattern key. Acquire a Spinda from Spinda Win Casino in CE; match its pattern to today's lock. Designed to force players through CE (and thus discover the Film Industry plot) before they can reach the Fairy Gym at CI.</dd>
+
+      <dt class="plot-mechanic-term">Channeler Rumor System</dt>
+      <dd class="plot-mechanic-def">Channeler trainer encounters reward <em>rumors</em> instead of money. Rumors are fragments in three categories — <strong>Landmark</strong> (where), <strong>Observation</strong> (what kind of thing), <strong>Event</strong> (why it matters) — that collapse into specific anomaly sites when investigated together. Higher-tier rewards: Map Location, Dimensional Bleed Site, Safari Ticket.</dd>
+    </dl>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom" aria-label="Chapter navigation">
+    <a class="nav-link nav-link-prev" href="#index">← Back to Index</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-02">Next: Pokémon →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER II — POKÉMON                                                 -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-species" id="ch-02">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter II</p>
+    <h2 class="chapter-title">Pokémon: Species, Stats &amp; Roles</h2>
+    <p class="chapter-blurb">Where the creatures come from, how their numbers are derived, and how the table reads what kit a species brings.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Stat conversion formula (HP÷2.5, others÷10, ceiling, no minimum); 1d6 variance; 25 Natures; six combat roles with stat triads; dynamic role detection from raw stats; four-stage evolution numbering (0/1/2/3); Option C dice tiers adopted (Stage 1 = 3d8); forms vs stages schema (forms is the outer wrapper, stages nest inside).</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Migrating <em>master-dex.json</em> to raw-stat storage; removing the old <code>defaultRole</code> field; expanding the bulk-import tool; growing the dex past 28 entries.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Per-species <code>catchThreshold</code> and <code>rarityClass</code> fields; full 151 Kanto coverage; Johto and Hoenn additions; optional "build role" classifier that respects EVs and Nature.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Stat Conversion</h3>
+    <p>Every Pokémon's playable stats are derived from its raw game-base stats at the moment of capture. The conversion formula is the same in every tool, on every sheet, forever.</p>
+
+    <div class="formula-box stat-conversion-formula">
+      <p class="formula-label">For HP:</p>
+      <p class="formula-expression">⌈ raw_HP ÷ 2.5 ⌉</p>
+      <p class="formula-label">For ATK, DEF, S.ATK, S.DEF, SPD:</p>
+      <p class="formula-expression">⌈ raw_stat ÷ 10 ⌉</p>
+      <p class="formula-note"><strong>No minimum is enforced.</strong> A weak stat is allowed to be very low — that is intentional; the system tolerates a 1 or even a 0.</p>
+    </div>
+
+    <h4 class="subsection-heading">Variance (one-time, permanent)</h4>
+    <p>At capture, roll <strong>1d6</strong> for each of the six stats and add the rolls to the converted base. <em>These six rolls are permanent.</em> They are written on the Pokémon's sheet and never re-rolled — not on evolution, not on EV gain, not on level up. They are the species' personality in numbers.</p>
+
+    <h4 class="subsection-heading">Worked Example — Bulbasaur</h4>
+    <table class="example-table stat-example-table">
+      <caption class="table-caption">Table 2.1 — Bulbasaur stat derivation (1d6 rolls: 4/2/3/1/2/5; Nature: Jolly +SPD/−S.ATK)</caption>
+      <thead><tr><th>Stat</th><th>Raw</th><th>÷ Rule</th><th>Converted</th><th>+ d6 Roll</th><th>+ Nature</th><th>Final</th></tr></thead>
+      <tbody>
+        <tr><td>HP</td><td>45</td><td>÷2.5 ⌈ ⌉</td><td>18</td><td>+4</td><td>—</td><td>22</td></tr>
+        <tr><td>ATK</td><td>49</td><td>÷10 ⌈ ⌉</td><td>5</td><td>+2</td><td>—</td><td>7</td></tr>
+        <tr><td>DEF</td><td>49</td><td>÷10 ⌈ ⌉</td><td>5</td><td>+3</td><td>—</td><td>8</td></tr>
+        <tr><td>S.ATK</td><td>65</td><td>÷10 ⌈ ⌉</td><td>7</td><td>+1</td><td>−2</td><td>6</td></tr>
+        <tr><td>S.DEF</td><td>65</td><td>÷10 ⌈ ⌉</td><td>7</td><td>+2</td><td>—</td><td>9</td></tr>
+        <tr><td>SPD</td><td>45</td><td>÷10 ⌈ ⌉</td><td>5</td><td>+5</td><td>+2</td><td>12</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§2 — Natures</h3>
+    <p>There are <strong>25 Natures</strong>. Twenty boost one stat by +2 and reduce another by −2; the remaining five are neutral (no modifier). Nature is assigned randomly at encounter. <strong>Nature never modifies HP</strong>, even if the table below would suggest it could.</p>
+
+    <h3 class="section-heading">§3 — The Six Roles</h3>
+    <p>Role is determined by which of six stat triads scores highest on the Pokémon's <strong>raw</strong> stats. (Raw, not converted — the conversion formula amplifies HP so much that on converted stats the Defender triad would win for almost every species, which is wrong.) Role describes <em>what the species brings to a team</em>; it never gates moves or abilities. Nature and EVs do not change role.</p>
+
+    <table class="lore-table role-table">
+      <caption class="table-caption">Table 2.2 — Combat Roles</caption>
+      <thead><tr><th>Role</th><th>Stat Triad (raw sum)</th><th>MOBA Analogue</th><th>Jungle Profile</th></tr></thead>
+      <tbody>
+        <tr><td>Defender</td><td>HP + DEF + S.DEF</td><td>Pure Tank</td><td>Stability-heavy. Low Speed. Lane presence.</td></tr>
+        <tr><td>All-Rounder</td><td>ATK + SPD + DEF</td><td>Fighter / Duelist</td><td>Primary Reach accumulator. Dives aggressively.</td></tr>
+        <tr><td>Attacker</td><td>S.ATK + SPD + S.DEF</td><td>Artillery / Mage</td><td>Pressure specialist. Triggers lane effects.</td></tr>
+        <tr><td>Speedster</td><td>ATK + S.ATK + SPD</td><td>Hyper-Carry</td><td>Fastest Reach. No DEF/S.DEF — Exposure is lethal.</td></tr>
+        <tr><td>Controller</td><td>ATK + DEF + S.DEF</td><td>Juggernaut</td><td>Occupies zones. Low Speed limits Reach.</td></tr>
+        <tr><td>Supporter</td><td>S.ATK + DEF + S.DEF</td><td>Controller / Support</td><td>Rotation specialist. Survives Exposure spikes.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§4 — Stages &amp; Evolution</h3>
+    <p>Evolution uses a <strong>four-tier numbering</strong>: Stage 0 (baby), Stage 1 (base), Stage 2 (mid), Stage 3 (final). Most lines start at Stage 1; babies exist only for species that received pre-evolutions in later generations. Stage numbering governs which dice tier the Pokémon uses (see Chapter V).</p>
+
+    <p>On evolution, recompute converted stats using the new stage's raw values, <strong>add the original d6 variance rolls</strong>, then re-apply the same Nature. Dice pool refreshes fully at the new tier — all permanently lost dice are recovered. Evolution is the comeback mechanic.</p>
+
+    <h3 class="section-heading">§5 — Forms</h3>
+    <p>Forms (Kanto/Alola/Galar/Hisui/Paldea variants) are the <strong>outermost wrapper</strong> in the data schema; stages nest inside forms. A species with one form still uses the wrapper — there is exactly one form. A species with regional variants has one form per variant, each with its own stages. This means Rattata-Kanto and Rattata-Alola are two forms under one species entry, not two species entries.</p>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-01">← Chapter I: World</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-03">Next: Trainers →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER III — TRAINERS                                               -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-trainers" id="ch-03">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter III</p>
+    <h2 class="chapter-title">Trainers &amp; Archetypes</h2>
+    <p class="chapter-blurb">No class at creation. Players earn their archetype by playing it.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Six archetypes with two characteristic traits each; the Fixed vs Scaling trait distinction; Trainer Points / Badge Points / Rare Candy economy; synergy passive concept; Socialite's unique rule-break (Status on Standard moves).</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Ranger skill tree branches A and B; balancing the rate at which Trainer Points accrue per archetype-aligned action.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Per-tier skill lists for every archetype; trainer character sheet as a printable HTML form; the Channeler rumor reward tables; Burglar contextual loot tables expanded per region; full archetype synergy matrix.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Trait Types</h3>
+    <p>Each archetype offers two <strong>Characteristic Traits</strong>, one per branch. A trait is either <strong>Fixed</strong> (powerful and static) or <strong>Scaling</strong> (narrow at first, deepens with engagement). Branch A is available from start; Branch B unlocks with sufficient investment.</p>
+
+    <h3 class="section-heading">§2 — The Six Archetypes</h3>
+
+    <article class="archetype-card archetype-ace-trainer">
+      <h4 class="archetype-name">Ace Trainer — Combat Mastery</h4>
+      <ul class="trait-list">
+        <li class="trait trait-scaling"><strong>Tactics</strong> (Scaling). Overworld: predicts opponent strategy from tells; reads Gym Leader tendencies. Combat: positioning, initiative manipulation, multi-Pokémon coordination. Deepens with battle experience.</li>
+        <li class="trait trait-scaling"><strong>Item Research</strong> (Scaling). Overworld: identifies item properties and synergies; may unlock non-standard items. Combat: held-item deployment and consumable optimization. Deep investment unlocks unique interactions.</li>
+      </ul>
+    </article>
+
+    <article class="archetype-card archetype-ranger">
+      <h4 class="archetype-name">Ranger — Wilderness &amp; Survival</h4>
+      <ul class="trait-list">
+        <li class="trait trait-scaling"><strong>Wild Attunement</strong> (Scaling). Overworld: navigates terrain and weather; identifies attractants/repellents; tracks wildlife. Combat: passively shapes weather conditions in a matching biome; reduces jungle Exposure.</li>
+        <li class="trait trait-scaling"><strong>Favored Type</strong> (Scaling). Overworld: improved catch rates for favored type; unlocks additional types over time. Combat: bonuses commanding the favored type in lane and jungle. Attunement + Favored synergy → Super Effective triggers.</li>
+      </ul>
+    </article>
+
+    <article class="archetype-card archetype-socialite">
+      <h4 class="archetype-name">Socialite — Socialization &amp; Faction Navigation</h4>
+      <ul class="trait-list">
+        <li class="trait trait-fixed"><strong>Fashionable</strong> (Fixed). Overworld: advantages in beauty contests, high-status NPC interactions, faction first impressions. Combat: passive deference and attraction effects on opponents and minions.</li>
+        <li class="trait trait-fixed"><strong>Status</strong> (Fixed). Overworld: social status as leverage — negotiation, faction reputation, high-level info. Combat: <strong>unique rule-break</strong> — Standard moves can cause status effects. The only such break in the system.</li>
+      </ul>
+    </article>
+
+    <article class="archetype-card archetype-burglar">
+      <h4 class="archetype-name">Burglar — Sabotage &amp; Infiltration</h4>
+      <ul class="trait-list">
+        <li class="trait trait-fixed"><strong>Swipe</strong> (Fixed). Overworld: sleight of hand, pickpocketing, physical security bypass. Combat: steal held items or disrupt opponent item economy mid-battle.</li>
+        <li class="trait trait-scaling"><strong>Stealth</strong> (Scaling). Overworld: infiltration, restricted-area movement, Spirit Walk without alerting wards. Combat: ambush setup; reduces enemy awareness before a match.</li>
+      </ul>
+    </article>
+
+    <article class="archetype-card archetype-tamer">
+      <h4 class="archetype-name">Tamer — Pokémon Husbandry</h4>
+      <ul class="trait-list">
+        <li class="trait trait-scaling"><strong>Rearing</strong> (Scaling). Overworld: breeding, egg hatching, EV investment, long-term Pokémon development. Combat: unlocks moveset expansion — deep investment enables moves normally unavailable to a species.</li>
+        <li class="trait trait-scaling"><strong>Whisperer</strong> (Scaling). Overworld: calms wild or distressed Pokémon; manages obedience for high-level catches. Combat: reduces disobedience risk for Pokémon exceeding the trainer's level threshold. Synergizes with Socialite Status.</li>
+      </ul>
+    </article>
+
+    <article class="archetype-card archetype-channeler">
+      <h4 class="archetype-name">Channeler — Weird &amp; Dimensional</h4>
+      <ul class="trait-list">
+        <li class="trait trait-scaling"><strong>Witness</strong> (Scaling). Overworld: foresight, divination, reading anomaly sites; identifies dimensional bleed locations. Combat: reduces surprise vulnerability in jungle; can read opponent intent before commits.</li>
+        <li class="trait trait-scaling"><strong>Secret Power</strong> (Scaling). Overworld: perceives Ghost-type Pokémon invisible to others; enables Spirit Walk; teleportation at advanced tiers. Combat: manifests through Pokémon rather than the trainer. Witness + Secret Power synergy: finds anomalies <em>and</em> enters them.</li>
+      </ul>
+    </article>
+
+    <h3 class="section-heading">§3 — Trainer Progression</h3>
+    <p>Trainer Points are earned from archetype-aligned actions (each archetype has its own list). Badge Points accrue from every Gym milestone and may be spent anywhere — these are the "Rare Candy" of trainer progression. Skill tiers unlock at corresponding badge counts: Tier 1 at Badge 1, Tier 2 at Badge 2, and so on. There is no hard gating between trees; investing in multiple archetypes is normal and supported by the synergy passives.</p>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-02">← Chapter II: Pokémon</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-04">Next: The Battle Round →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER IV — BATTLE ROUND                                            -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-battle-round" id="ch-04">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter IV</p>
+    <h2 class="chapter-title">The Battle Round</h2>
+    <p class="chapter-blurb">Four phases per round, each touching every active Pokémon, minion, and trainer.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Four-phase round structure (Roll / Action / Minion Wave / Upkeep); initiative formula; the win conditions for both players and Gym Leaders.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> A reference card showing the per-phase checklist for the GM to read aloud; balancing the upkeep tick rate of status conditions.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Multi-arena coordination rules (when two parallel lanes share a round); the boss-phase variant for Gym Leader Mega encounters.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Phase Sequence</h3>
+    <ol class="phase-list">
+      <li class="phase phase-roll"><strong>Roll Phase.</strong> Every active Pokémon (player-side and NPC-side) rolls fresh dice for the round, using its per-stage roll (see Chapter V). Banked dice stay banked — do not touch them. Minions do not roll; their behavior is deterministic.</li>
+      <li class="phase phase-action"><strong>Action Phase.</strong> In initiative order, each trainer allocates that Pokémon's dice. Allocations include: spend on a move (Standard, Special, Signature, or Struggle), bank for later, or commit to jungle (Movement / Action / Stability — see Chapter VI).</li>
+      <li class="phase phase-minion"><strong>Minion Wave Phase.</strong> The wave resolves movement and attacks. Three units of any tier merge into one unit of the next tier. New minions arrive on the Global XP escalator (Chapter VII).</li>
+      <li class="phase phase-upkeep"><strong>Upkeep Phase.</strong> Status effects tick. XP is awarded. Evolution thresholds are checked; eligible Pokémon evolve immediately and refresh their pool at the new tier.</li>
+    </ol>
+
+    <h3 class="section-heading">§2 — Initiative</h3>
+    <div class="formula-box initiative-formula">
+      <p class="formula-label">Initiative this round:</p>
+      <p class="formula-expression">initiative = (sum of this round's rolled energy dice) + SPD + modifiers</p>
+      <p class="formula-note">The dice sum has a natural floor that rises with evolution: 2d12 minimum 2, 3d8 minimum 3, 4d6 minimum 4, 6d4 minimum 6. The ceiling is 24 at every tier (2×12 = 3×8 = 4×6 = 6×4). Modifiers come from held items, move priority effects, status conditions, and trainer abilities.</p>
+    </div>
+    <p>Highest initiative acts first. Ties break on SPD first, then on GM discretion. This replaces the older "+100 priority brackets / highest fresh die" formula that lived in the rulebook page — that version is non-canon.</p>
+
+    <h3 class="section-heading">§3 — Win Conditions</h3>
+    <h4 class="subsection-heading">Players win by:</h4>
+    <ol class="wincon-list">
+      <li>Clearing the Gym's typed Obstacle (requires the HM skill earned from the Obstacle itself);</li>
+      <li>Defeating all four of the Gym Leader's field Pokémon;</li>
+      <li>Defeating the Boss — the Mega Evolution of the Gym Leader's signature Pokémon.</li>
+    </ol>
+    <h4 class="subsection-heading">Gym Leaders win by:</h4>
+    <p>Attritioning player Pokémon dice pools to the point of non-contest. Gym Leaders have no Nexus to destroy — their entire strategy is endurance.</p>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-03">← Chapter III: Trainers</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-05">Next: Dice &amp; Moves →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER V — DICE & MOVES                                             -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-dice" id="ch-05">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter V</p>
+    <h2 class="chapter-title">Dice, Moves &amp; Damage</h2>
+    <p class="chapter-blurb">The beating heart of combat: individual die tracking, persistent banking, and damage formulas that the simulator is built on.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Option C dice tiers (6/8/10/12 activations for stages 0/1/2/3); the mix-and-match selection model (fresh + bank both feed into move activations); Standard / Special / Signature / Struggle move types; damage formulas; banking semantics (preserves die values); the dice-attrition table.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Per-role move costs (the simulator uses placeholders pending the moveset design pass); typing the full move list into <em>data/moves.json</em>.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Complete type chart with resistances; resolution of dual-type stacking; deletion (or rewrite) of the "Generic Special" action from the rulebook; movesets keyed by role; Mega-form move expansions.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Dice Pools by Stage</h3>
+    <p>All roles use the same pool tiers. Role differentiation comes from move activation costs, not pool size. The rule is <strong>Pool = Max Activations × Roll/Round</strong>.</p>
+
+    <table class="lore-table dice-pool-table">
+      <caption class="table-caption">Table 5.1 — Dice Pools by Stage (Option C, adopted)</caption>
+      <thead><tr><th>Stage</th><th>Pool</th><th>Roll / Round</th><th>Bank Cap</th><th>Max Activations</th></tr></thead>
+      <tbody>
+        <tr><td>0 (baby)</td><td>12d12</td><td>2d12</td><td>6 dice</td><td>6 (casual play only — banned from Gyms)</td></tr>
+        <tr><td>1 (base)</td><td>24d8</td><td>3d8</td><td>12 dice</td><td>8</td></tr>
+        <tr><td>2 (mid)</td><td>40d6</td><td>4d6</td><td>20 dice</td><td>10</td></tr>
+        <tr><td>3 (final)</td><td>72d4</td><td>6d4</td><td>36 dice</td><td>12</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>The key property:</strong> every tier rolls the same potential of 24 energy per round (2×12 = 3×8 = 4×6 = 6×4). Evolution increases consistency (higher floor, narrower variance) and unlocks more total activations per battle.</p>
+
+    <h3 class="section-heading">§2 — Move Tiers</h3>
+    <table class="lore-table move-tier-table">
+      <caption class="table-caption">Table 5.2 — The Four Move Categories</caption>
+      <thead><tr><th>Type</th><th>Cost</th><th>Pool Effect</th><th>Status?</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Standard (Tackle)</td><td>1 or more selected dice; no minimum threshold</td><td>Dice return to the pool immediately</td><td>Never*</td><td>Tackle, Scratch, Swift</td></tr>
+        <tr><td>Special</td><td>Selected dice whose sum meets the move's energy threshold</td><td>Dice consumed; 1 die temporarily removed from pool</td><td>Yes</td><td>Ember, Razor Leaf, Bubble Beam</td></tr>
+        <tr><td>Signature</td><td>Selected dice whose sum meets the move's (usually higher) energy threshold</td><td>Dice consumed; 2 dice temporarily removed from pool</td><td>Yes</td><td>Hydro Pump, Solar Beam, Fire Blast</td></tr>
+        <tr><td>Struggle</td><td>None</td><td>Consumes nothing</td><td>No</td><td>Anti-soft-lock fallback: deals 4 damage to both Pokémon</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">* Socialite Exception: the Status Trait allows Standard moves to cause status effects. It is the only rule-break of its kind.</p>
+
+    <h3 class="section-heading">§3 — The Selection Model</h3>
+    <p>This is the one rule players miss most often, so it gets its own paragraph. <strong>Dice for any move are chosen from <em>both</em> the fresh pool and the bank.</strong> Banked dice are not "locked up" — they are accumulated energy a player can spend at any time. Standard moves require at least one selected die (any source). Special and Signature require the selected dice to sum to at least the move's energy threshold. The bank acts as long-term storage; the fresh pool acts as this-round's pickup; the player mixes from both.</p>
+
+    <h3 class="section-heading">§4 — Damage Formulas</h3>
+    <div class="formula-box damage-formula damage-formula-standard">
+      <p class="formula-label">Standard move damage (per die spent):</p>
+      <p class="formula-expression">damage = max(1, die_value + ATK − DEF + type_mod)</p>
+      <p class="formula-note">Sum across all selected dice. Each die is rolled individually through the formula, so spending three dice yields three separate damage events that are then summed.</p>
+    </div>
+
+    <div class="formula-box damage-formula damage-formula-special">
+      <p class="formula-label">Special / Signature damage:</p>
+      <p class="formula-expression">damage = max(1, sum(selected_die_values) + S.ATK − S.DEF + type_mod)</p>
+      <p class="formula-note">A single calculation, using the sum of the selected dice. <strong>Banked dice preserve the values they were banked at</strong> — they are not re-rolled. Banking a [12, 10, 8] and later spending it on a Special gives 30 + S.ATK − S.DEF + type_mod, not a fresh roll.</p>
+    </div>
+
+    <div class="formula-box damage-formula damage-formula-struggle">
+      <p class="formula-label">Struggle:</p>
+      <p class="formula-expression">damage = 4 (to <em>both</em> Pokémon); consumes no dice</p>
+      <p class="formula-note">Always available. Designed so a Pokémon that has somehow lost its entire pool can still take action and bring the fight to a conclusion.</p>
+    </div>
+
+    <h3 class="section-heading">§5 — Type Modifier</h3>
+    <table class="lore-table type-modifier-table">
+      <caption class="table-caption">Table 5.3 — Type Modifier (single-typed defender)</caption>
+      <thead><tr><th>Effectiveness</th><th>Modifier</th></tr></thead>
+      <tbody>
+        <tr><td>Super effective</td><td>+2</td></tr>
+        <tr><td>Neutral</td><td>±0</td></tr>
+        <tr><td>Not very effective</td><td>−2 (still minimum 1 damage)</td></tr>
+        <tr><td>Immune</td><td>×0 (no damage applies — bypass the formula entirely)</td></tr>
+      </tbody>
+    </table>
+    <p>Dual-type stacking (e.g. a Fire attack on a Grass/Bug defender that is double-weak) is documented inconsistently and lives in <a href="#appendix-c">Appendix C — Pending Reconciliation</a>. Until that's settled, the GM's table ruling is the law.</p>
+
+    <h3 class="section-heading">§6 — Dice Attrition</h3>
+    <p>Permanent dice loss is the slow squeeze that lets Gym Leaders win. Temporarily removed dice always come back on the Pokémon's return to base; permanent losses do not, until evolution refreshes everything.</p>
+
+    <table class="lore-table attrition-table">
+      <caption class="table-caption">Table 5.4 — Dice Attrition Events</caption>
+      <thead><tr><th>Event</th><th>Effect</th><th>Permanent?</th></tr></thead>
+      <tbody>
+        <tr><td>Use Standard move</td><td>Die returns immediately</td><td>No</td></tr>
+        <tr><td>Activate Special</td><td>1 die temporarily removed</td><td>No</td></tr>
+        <tr><td>Activate Signature</td><td>2 dice temporarily removed</td><td>No</td></tr>
+        <tr><td>Return to base (voluntary)</td><td>Temps refresh, then 1 die lost</td><td><strong>Yes — 1 die</strong></td></tr>
+        <tr><td>Faint</td><td>Temps refresh, then 2 dice lost</td><td><strong>Yes — 2 dice</strong></td></tr>
+        <tr><td>Evolve</td><td>Full pool refresh at new stage size</td><td>Resets all losses</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-04">← Chapter IV: The Battle Round</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-06">Next: The Jungle →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER VI — JUNGLE                                                  -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-jungle" id="ch-06">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter VI</p>
+    <h2 class="chapter-title">The Jungle Layer</h2>
+    <p class="chapter-blurb">A non-spatial layer where Pokémon roam unsupervised, gathering resources and risk in parallel to the lane.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> The three resource axes (Reach, Exposure, Stability); the three encounter categories (Hunt, Pressure, Ambush); role-by-role jungle fitness profile.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Concrete Reach gates (Low/Mid/High/Extreme thresholds in playable numbers); Exposure breakpoint that triggers a forced jungler collision.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Per-biome jungle table; weather effects on jungle accumulation; Ambush window cards (one per Pokémon role).</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Reach &amp; Exposure</h3>
+    <p>The trainer never enters the jungle directly. Pokémon roam there, accumulating two resources:</p>
+    <dl class="jungle-resource-list">
+      <dt class="resource-term resource-reach">Reach</dt>
+      <dd class="resource-def">Built by allocating dice to <strong>Movement</strong> in the Action phase. Reach gates encounter tier — Low at 1+, Mid at 2+, High at 3+, Extreme at 4+. Reach resets at the end of each match.</dd>
+      <dt class="resource-term resource-exposure">Exposure</dt>
+      <dd class="resource-def">Accumulated by risky actions: Hunt encounters, certain Ambush windows, high-tier movement without supporting Stability. <strong>Exposure never decays during a match.</strong> When two opposing junglers' combined Exposure crosses a threshold, the GM triggers a forced collision.</dd>
+      <dt class="resource-term resource-stability">Stability</dt>
+      <dd class="resource-def">Built by allocating dice to <strong>Stability</strong> in the Action phase. Stability counters Exposure accumulation, keeping a fragile jungler alive.</dd>
+    </dl>
+
+    <h3 class="section-heading">§2 — Jungle Encounter Types</h3>
+    <ul class="jungle-encounter-list">
+      <li><strong>Hunt.</strong> Direct combat with wild Pokémon. ATK-reliant. The primary source of personal jungle XP.</li>
+      <li><strong>Pressure.</strong> Special-attack-based action. Triggers global map effects, applying lane pressure from off-screen even when no jungler is in lane.</li>
+      <li><strong>Ambush.</strong> Sets traps for opposing junglers or ganks into lane. Requires Reach and committed investment up front.</li>
+    </ul>
+
+    <h3 class="section-heading">§3 — Role Fit</h3>
+    <table class="lore-table jungle-role-table">
+      <caption class="table-caption">Table 6.1 — Role Jungle Profiles</caption>
+      <thead><tr><th>Role</th><th>Jungle Fit</th><th>Profile</th></tr></thead>
+      <tbody>
+        <tr><td>All-Rounder</td><td>Primary</td><td>High SPD drives rapid Reach. DEF provides bulk for skirmishes.</td></tr>
+        <tr><td>Speedster</td><td>Primary</td><td>Fastest Reach. No DEF/S.DEF — every Exposure spike is lethal. Ambush-focused.</td></tr>
+        <tr><td>Controller</td><td>Occupier</td><td>High Reach ceiling, slow accumulation. Parks in high-tier zones.</td></tr>
+        <tr><td>Attacker</td><td>Pressure</td><td>High S.ATK translates to Pressure actions. Lane effects from off-screen.</td></tr>
+        <tr><td>Supporter</td><td>Pressure</td><td>Dual-defense coverage survives Exposure spikes. Rotation specialist.</td></tr>
+        <tr><td>Defender</td><td>Poor</td><td>No SPD, negligible Reach. Large pool wasted in the jungle — belongs in lane.</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-05">← Chapter V: Dice &amp; Moves</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-07">Next: Minion Waves →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER VII — MINION WAVES                                           -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-minions" id="ch-07">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter VII</p>
+    <h2 class="chapter-title">Minion Waves &amp; the Field Behemoth</h2>
+    <p class="chapter-blurb">The escalating MOBA pressure mechanism. Three become one. One becomes everything.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Tier-based minion stats (T1/T2/T3); the 30-Global-XP escalation cadence; the three-merge rule; Field Behemoth trigger condition.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Field Behemoth statblock; its loot and XP yields; the wave-pacing curve under playtest conditions.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Per-biome minion reskins; Mega-Behemoth variant for endgame encounters; objective monster suite (analogous to Dragon/Baron).</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Minion Statblocks</h3>
+    <table class="lore-table minion-table">
+      <caption class="table-caption">Table 7.1 — Minion Tiers</caption>
+      <thead><tr><th>Tier</th><th>ATK</th><th>HP</th><th>XP Value</th></tr></thead>
+      <tbody>
+        <tr><td>T1</td><td>3</td><td>Low</td><td>1</td></tr>
+        <tr><td>T2</td><td>6</td><td>Medium</td><td>3</td></tr>
+        <tr><td>T3</td><td>9</td><td>High</td><td>9</td></tr>
+      </tbody>
+    </table>
+    <p>DEF is not considered for minion-on-minion interaction — all minions one-shot each other. Player Standard moves one-shot minions. Minion damage to players uses <code>ATK − target DEF</code>, with the usual minimum 1.</p>
+
+    <h3 class="section-heading">§2 — Escalation</h3>
+    <p>Every <strong>30 combined Global XP</strong> earned by the players, one new Tier-1 minion is added to the wave permanently. If any tier then has more than three units, three of them merge into one of the next tier. Merges cascade — a T1 merge that produces a fourth T2 then merges into a T3 in the same upkeep.</p>
+
+    <table class="example-table wave-example-table">
+      <caption class="table-caption">Table 7.2 — Example Wave Escalation</caption>
+      <thead><tr><th>Global XP</th><th>Event</th><th>Wave After</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Starting wave</td><td>3× T1</td></tr>
+        <tr><td>30</td><td>+T1 → four T1s merge</td><td>1× T1, 1× T2</td></tr>
+        <tr><td>60</td><td>+T1</td><td>2× T1, 1× T2</td></tr>
+        <tr><td>90</td><td>+T1</td><td>3× T1, 1× T2</td></tr>
+        <tr><td>120</td><td>+T1 → T1 merge</td><td>1× T1, 2× T2</td></tr>
+        <tr><td>240</td><td>+T1 → T2 merge</td><td>2× T1, 1× T3</td></tr>
+        <tr><td>300+</td><td>Continues escalating</td><td>Mixed T1/T2/T3</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§3 — Field Behemoth</h3>
+    <blockquote class="lore-callout behemoth-callout">
+      <p>When three T3 minions exist simultaneously, a <strong>Field Behemoth</strong> spawns automatically at a defined map position. This is not GM discretion — it fires when the condition is met. The Behemoth is a neutral boss, visible to all players, and represents the primary match-ending pressure mechanism for stalled games. Defeating it grants substantial team XP and a one-time team-wide buff for the remainder of the match.</p>
+    </blockquote>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-06">← Chapter VI: The Jungle</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-08">Next: Capture →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER VIII — CAPTURE                                               -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-capture" id="ch-08">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter VIII</p>
+    <h2 class="chapter-title">Capture &amp; Encounter</h2>
+    <p class="chapter-blurb">Roll <em>under</em>. Better balls roll fewer dice. The math always favors the prepared trainer.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Four Poké Ball tiers with dice; HP-state catch modifiers; status condition modifiers; six rarity classes; the roll-under-the-threshold core.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Deriving the base catch threshold formula from raw stat totals (so a stronger Pokémon is meaningfully harder to catch); fixing the Tauros and Mewtwo example math in the rulebook page.</li>
+      <li class="status status-planned"><strong>Planned:</strong> Per-species <code>catchThreshold</code> and <code>rarityClass</code> fields in <em>master-dex.json</em>; Safari Ticket capture variant; held-item-modified catch logic.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — The Core Mechanic</h3>
+    <p>To catch a Pokémon, the player rolls dice (determined by the ball used) and compares the sum to a Catch Threshold derived for that encounter. If the sum is <strong>under</strong> the threshold, the catch succeeds. <strong>Rolling high is bad.</strong> Better Poké Balls roll fewer dice, making low sums more predictable.</p>
+
+    <table class="lore-table pokeball-table">
+      <caption class="table-caption">Table 8.1 — Poké Ball Dice</caption>
+      <thead><tr><th>Ball</th><th>Dice</th><th>Range</th><th>Average</th></tr></thead>
+      <tbody>
+        <tr><td>Poké Ball</td><td>3d6</td><td>3–18</td><td>10.5</td></tr>
+        <tr><td>Great Ball</td><td>2d6</td><td>2–12</td><td>7</td></tr>
+        <tr><td>Ultra Ball</td><td>1d6</td><td>1–6</td><td>3.5</td></tr>
+        <tr><td>Master Ball</td><td>Automatic</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§2 — Threshold Modifiers</h3>
+    <p>Base threshold = "full health at standard rarity." All modifiers <em>expand the catch window</em> (raise the threshold, making low sums easier to land under).</p>
+
+    <table class="lore-table catch-modifier-table">
+      <caption class="table-caption">Table 8.2 — HP-State &amp; Status Modifiers</caption>
+      <thead><tr><th>HP State</th><th>Modifier</th><th>Status</th><th>Modifier</th></tr></thead>
+      <tbody>
+        <tr><td>Full health</td><td>±0 (base)</td><td>Sleep / Freeze</td><td>+6</td></tr>
+        <tr><td>Half health</td><td>+4</td><td>Paralysis / Burn</td><td>+3</td></tr>
+        <tr><td>Red zone</td><td>+8</td><td>Poison</td><td>+2</td></tr>
+        <tr><td>Fainted</td><td>Uncatchable</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <table class="lore-table rarity-modifier-table">
+      <caption class="table-caption">Table 8.3 — Rarity Class Modifiers</caption>
+      <thead><tr><th>Class</th><th>Threshold Mod</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td>Standard</td><td>±0</td><td>Most wild Pokémon</td></tr>
+        <tr><td>Uncommon</td><td>−2</td><td>Less common species</td></tr>
+        <tr><td>Rare</td><td>−4</td><td>Route-specific species</td></tr>
+        <tr><td>Pseudo-Legendary</td><td>−6</td><td>Dragonite, Tyranitar lines</td></tr>
+        <tr><td>Legendary</td><td>−10</td><td>Articuno, Zapdos, Moltres, Mewtwo</td></tr>
+        <tr><td>Mythical</td><td>Special</td><td>Mew (conditions vary)</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-07">← Chapter VII: Minion Waves</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#ch-09">Next: Economy →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- CHAPTER IX — ECONOMY                                                 -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="chapter chapter-economy" id="ch-09">
+  <header class="chapter-header">
+    <p class="chapter-number">Chapter IX</p>
+    <h2 class="chapter-title">Economy, Experience &amp; Evolution</h2>
+    <p class="chapter-blurb">How XP flows, what money fights are worth, and when a Pokémon levels up to its next stage.</p>
+  </header>
+
+  <aside class="chapter-status">
+    <h3 class="status-heading">Status of this Chapter</h3>
+    <ul class="status-list">
+      <li class="status status-done"><strong>Completed:</strong> Global vs Personal XP split; minion XP awards; evolution thresholds (30 / 70 Global XP); the trainer payout formula and its archetype scalars; Burglar contextual loot table; Gym prize money formula; Channeler rumor reward concept.</li>
+      <li class="status status-in-progress"><strong>In progress:</strong> Playtest calibration of evolution timing; tuning the rate of Global XP per minion clear so that evolution lands on the intended round.</li>
+      <li class="status status-planned"><strong>Planned:</strong> EV award rates per encounter type; Tier-2 unlock specials that grant special loot tables; team-wide consumables economy.</li>
+    </ul>
+  </aside>
+
+  <article class="chapter-body">
+    <h3 class="section-heading">§1 — Experience</h3>
+    <h4 class="subsection-heading">Global XP (team-wide)</h4>
+    <ul class="xp-list">
+      <li>Minion spawn: +1 per minion.</li>
+      <li>Minion cleared: +1 per T1, +3 per T2, +9 per T3.</li>
+      <li>Obstacle destroyed: +20.</li>
+    </ul>
+    <h4 class="subsection-heading">Personal XP (per trainer)</h4>
+    <ul class="xp-list">
+      <li>KO Stage 0 Pokémon: +3.</li>
+      <li>KO Stage 1 Pokémon: +4.</li>
+      <li>KO Stage 2 Pokémon: +5.</li>
+    </ul>
+
+    <h3 class="section-heading">§2 — Evolution Thresholds</h3>
+    <ul class="evolution-list">
+      <li>To Stage 1 (from Stage 0): Global XP ≥ 30.</li>
+      <li>To Stage 2 (from Stage 1): Global XP ≥ 30.</li>
+      <li>To Stage 3 (from Stage 2): Global XP ≥ 70.</li>
+    </ul>
+    <p>Evolution triggers a full pool refresh at the new stage size. All permanently lost dice are recovered. This is the deliberate comeback mechanic.</p>
+
+    <h3 class="section-heading">§3 — Trainer Battle Payouts</h3>
+    <div class="formula-box payout-formula">
+      <p class="formula-label">Money awarded to the players for a won trainer battle:</p>
+      <p class="formula-expression">P = A × ∑( ⌈ L ÷ 10 ⌉ × 100 )</p>
+      <p class="formula-note"><strong>A</strong> = archetype scalar of the defeated trainer. <strong>L</strong> = individual level of each Pokémon in their party. <strong>∑</strong> = sum across all of their Pokémon before the scalar multiplies through.</p>
+    </div>
+
+    <table class="lore-table archetype-payout-table">
+      <caption class="table-caption">Table 9.1 — Archetype Scalars &amp; Special Rewards</caption>
+      <thead><tr><th>Archetype</th><th>Scalar</th><th>Special Reward</th></tr></thead>
+      <tbody>
+        <tr><td>Ace Trainer</td><td>1</td><td>Loot table — Potions, Poké Balls, rare held items</td></tr>
+        <tr><td>Burglar</td><td>1</td><td>Contextual loot — depends on the encounter's location</td></tr>
+        <tr><td>Channeler</td><td>1</td><td>Rumor table — landmarks, observations, events; rare map locations and Safari Tickets</td></tr>
+        <tr><td>Ranger</td><td>2</td><td>Money only</td></tr>
+        <tr><td>Tamer</td><td>3</td><td>Money only</td></tr>
+        <tr><td>Socialite</td><td>4</td><td>Money only</td></tr>
+      </tbody>
+    </table>
+
+    <table class="lore-table burglar-loot-table">
+      <caption class="table-caption">Table 9.2 — Burglar Contextual Loot</caption>
+      <thead><tr><th>Location</th><th>Possible Rewards</th></tr></thead>
+      <tbody>
+        <tr><td>Working-class area</td><td>Small money, TM, Potions</td></tr>
+        <tr><td>Factory / industrial</td><td>Potions, food items, craft materials</td></tr>
+        <tr><td>Mansion / wealthy</td><td>Large money, Nuggets, rare held items</td></tr>
+        <tr><td>Any (very rare)</td><td>A caught Pokémon, or an unhatched Egg</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">§4 — Loss Penalties &amp; Gym Prizes</h3>
+    <table class="lore-table loss-scalar-table">
+      <caption class="table-caption">Table 9.3 — Player-Side Payout Scalars (when paying out a loss)</caption>
+      <thead><tr><th>Badges Earned</th><th>Player Scalar</th></tr></thead>
+      <tbody>
+        <tr><td>0–1</td><td>1</td></tr>
+        <tr><td>2–3</td><td>2</td></tr>
+        <tr><td>4–5</td><td>3</td></tr>
+        <tr><td>6–7</td><td>4</td></tr>
+        <tr><td>8</td><td>5</td></tr>
+      </tbody>
+    </table>
+    <p><em>Players never pay for losing a Gym battle.</em> Gym losses are punished with re-leveling, not with money loss.</p>
+
+    <p><strong>Gym prize money:</strong> $4,000 base + $2,000 per Badge number. Badge 1 = $4,000; Badge 8 = $18,000. Subject to playtest revision.</p>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-08">← Chapter VIII: Capture</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#appendix-a">Next: Appendix A →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- APPENDIX A — CONVERSION TABLES                                       -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="appendix appendix-conversion" id="appendix-a">
+  <header class="appendix-header">
+    <p class="appendix-letter">Appendix A</p>
+    <h2 class="appendix-title">Video Game → PKTTRPG Conversion Tables</h2>
+    <p class="appendix-blurb">Everything you need to take a Pokémon out of a video game and into this system, by hand, with a single page of paper.</p>
+  </header>
+
+  <article class="appendix-body">
+    <h3 class="section-heading">A.1 — Stat Conversion Quick Card</h3>
+    <table class="conversion-table stat-conversion-card">
+      <caption class="table-caption">Table A.1 — Stat Conversion Quick Reference</caption>
+      <thead><tr><th>Raw Stat (game)</th><th>Division</th><th>Rule</th><th>No Floor</th></tr></thead>
+      <tbody>
+        <tr><td>HP</td><td>÷ 2.5</td><td>Round UP (ceiling)</td><td>Yes — 0 or 1 is fine</td></tr>
+        <tr><td>ATK</td><td>÷ 10</td><td>Round UP</td><td>Yes</td></tr>
+        <tr><td>DEF</td><td>÷ 10</td><td>Round UP</td><td>Yes</td></tr>
+        <tr><td>S.ATK</td><td>÷ 10</td><td>Round UP</td><td>Yes</td></tr>
+        <tr><td>S.DEF</td><td>÷ 10</td><td>Round UP</td><td>Yes</td></tr>
+        <tr><td>SPD</td><td>÷ 10</td><td>Round UP</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+
+    <h4 class="subsection-heading">Worked-out HP table (raw → converted)</h4>
+    <table class="conversion-table hp-quick-table">
+      <caption class="table-caption">Table A.2 — HP Conversion ⌈ raw ÷ 2.5 ⌉</caption>
+      <thead><tr><th>Raw HP</th><th>Converted</th><th>Raw HP</th><th>Converted</th><th>Raw HP</th><th>Converted</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>1</td><td>26–27</td><td>11</td><td>76–77</td><td>31</td></tr>
+        <tr><td>3–5</td><td>2</td><td>28–30</td><td>12</td><td>78–80</td><td>32</td></tr>
+        <tr><td>6–7</td><td>3</td><td>31–32</td><td>13</td><td>81–82</td><td>33</td></tr>
+        <tr><td>8–10</td><td>4</td><td>33–35</td><td>14</td><td>83–85</td><td>34</td></tr>
+        <tr><td>11–12</td><td>5</td><td>36–37</td><td>15</td><td>86–87</td><td>35</td></tr>
+        <tr><td>13–15</td><td>6</td><td>38–40</td><td>16</td><td>88–90</td><td>36</td></tr>
+        <tr><td>16–17</td><td>7</td><td>41–42</td><td>17</td><td>91–92</td><td>37</td></tr>
+        <tr><td>18–20</td><td>8</td><td>43–45</td><td>18</td><td>93–95</td><td>38</td></tr>
+        <tr><td>21–22</td><td>9</td><td>46–47</td><td>19</td><td>96–97</td><td>39</td></tr>
+        <tr><td>23–25</td><td>10</td><td>48–50</td><td>20</td><td>98–100</td><td>40</td></tr>
+      </tbody>
+    </table>
+    <p>For raw HP above 100, simply divide by 2.5 and round up: e.g. 154 → 62; 250 → 100; 504 (Blissey) → 202.</p>
+
+    <h4 class="subsection-heading">Worked-out non-HP table (raw → converted)</h4>
+    <table class="conversion-table nonhp-quick-table">
+      <caption class="table-caption">Table A.3 — ATK / DEF / S.ATK / S.DEF / SPD Conversion ⌈ raw ÷ 10 ⌉</caption>
+      <thead><tr><th>Raw</th><th>Converted</th><th>Raw</th><th>Converted</th><th>Raw</th><th>Converted</th></tr></thead>
+      <tbody>
+        <tr><td>1–10</td><td>1</td><td>61–70</td><td>7</td><td>121–130</td><td>13</td></tr>
+        <tr><td>11–20</td><td>2</td><td>71–80</td><td>8</td><td>131–140</td><td>14</td></tr>
+        <tr><td>21–30</td><td>3</td><td>81–90</td><td>9</td><td>141–150</td><td>15</td></tr>
+        <tr><td>31–40</td><td>4</td><td>91–100</td><td>10</td><td>151–160</td><td>16</td></tr>
+        <tr><td>41–50</td><td>5</td><td>101–110</td><td>11</td><td>161–170</td><td>17</td></tr>
+        <tr><td>51–60</td><td>6</td><td>111–120</td><td>12</td><td>171–180</td><td>18</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">A.2 — The 25 Natures</h3>
+    <table class="conversion-table nature-table">
+      <caption class="table-caption">Table A.4 — Complete Nature List</caption>
+      <thead><tr><th>Nature</th><th>+2 to</th><th>−2 to</th><th>Nature</th><th>+2 to</th><th>−2 to</th></tr></thead>
+      <tbody>
+        <tr><td>Hardy</td><td>—</td><td>—</td><td>Timid</td><td>SPD</td><td>ATK</td></tr>
+        <tr><td>Lonely</td><td>ATK</td><td>DEF</td><td>Hasty</td><td>SPD</td><td>DEF</td></tr>
+        <tr><td>Brave</td><td>ATK</td><td>SPD</td><td>Serious</td><td>—</td><td>—</td></tr>
+        <tr><td>Adamant</td><td>ATK</td><td>S.ATK</td><td>Jolly</td><td>SPD</td><td>S.ATK</td></tr>
+        <tr><td>Naughty</td><td>ATK</td><td>S.DEF</td><td>Naive</td><td>SPD</td><td>S.DEF</td></tr>
+        <tr><td>Bold</td><td>DEF</td><td>ATK</td><td>Modest</td><td>S.ATK</td><td>ATK</td></tr>
+        <tr><td>Docile</td><td>—</td><td>—</td><td>Mild</td><td>S.ATK</td><td>DEF</td></tr>
+        <tr><td>Relaxed</td><td>DEF</td><td>SPD</td><td>Quiet</td><td>S.ATK</td><td>SPD</td></tr>
+        <tr><td>Impish</td><td>DEF</td><td>S.ATK</td><td>Bashful</td><td>—</td><td>—</td></tr>
+        <tr><td>Lax</td><td>DEF</td><td>S.DEF</td><td>Rash</td><td>S.ATK</td><td>S.DEF</td></tr>
+        <tr><td>Calm</td><td>S.DEF</td><td>ATK</td><td>Quirky</td><td>—</td><td>—</td></tr>
+        <tr><td>Gentle</td><td>S.DEF</td><td>DEF</td><td colspan="3"></td></tr>
+        <tr><td>Sassy</td><td>S.DEF</td><td>SPD</td><td colspan="3"></td></tr>
+        <tr><td>Careful</td><td>S.DEF</td><td>S.ATK</td><td colspan="3"></td></tr>
+      </tbody>
+    </table>
+    <p>To assign a random Nature at the table, roll <strong>1d25</strong> (or 1d100 / 4, rounded up) and look up the row. Five rows are neutral; the others apply +2 to one stat and −2 to another.</p>
+
+    <h3 class="section-heading">A.3 — Stage → Dice Pool Quick Card</h3>
+    <table class="conversion-table dice-pool-card">
+      <caption class="table-caption">Table A.5 — Per-Stage Dice Pool (Option C — adopted)</caption>
+      <thead><tr><th>Stage</th><th>Pool</th><th>Roll/Round</th><th>Bank Cap</th><th>Max Activations</th></tr></thead>
+      <tbody>
+        <tr><td>0 (baby)</td><td>12d12</td><td>2d12</td><td>6</td><td>6 — casual only</td></tr>
+        <tr><td>1 (base)</td><td>24d8</td><td>3d8</td><td>12</td><td>8</td></tr>
+        <tr><td>2 (mid)</td><td>40d6</td><td>4d6</td><td>20</td><td>10</td></tr>
+        <tr><td>3 (final)</td><td>72d4</td><td>6d4</td><td>36</td><td>12</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section-heading">A.4 — Type Modifier Quick Card</h3>
+    <table class="conversion-table type-mod-card">
+      <caption class="table-caption">Table A.6 — Type Modifier</caption>
+      <thead><tr><th>Effectiveness</th><th>Modifier</th></tr></thead>
+      <tbody>
+        <tr><td>Super effective</td><td>+2</td></tr>
+        <tr><td>Neutral</td><td>±0</td></tr>
+        <tr><td>Not very effective</td><td>−2 (min 1 damage)</td></tr>
+        <tr><td>Immune</td><td>×0 (deal 0; skip the formula)</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Full type chart and resistances live in Appendix C as a pending item.</p>
+
+    <h3 class="section-heading">A.5 — Role Triad Quick Card</h3>
+    <table class="conversion-table role-triad-card">
+      <caption class="table-caption">Table A.7 — Role Detection from Raw Stats</caption>
+      <thead><tr><th>Role</th><th>Sum these three RAW stats</th></tr></thead>
+      <tbody>
+        <tr><td>Defender</td><td>HP + DEF + S.DEF</td></tr>
+        <tr><td>All-Rounder</td><td>ATK + SPD + DEF</td></tr>
+        <tr><td>Attacker</td><td>S.ATK + SPD + S.DEF</td></tr>
+        <tr><td>Speedster</td><td>ATK + S.ATK + SPD</td></tr>
+        <tr><td>Controller</td><td>ATK + DEF + S.DEF</td></tr>
+        <tr><td>Supporter</td><td>S.ATK + DEF + S.DEF</td></tr>
+      </tbody>
+    </table>
+    <p>Compute all six sums on the species' <strong>raw</strong> stats. The highest sum names the role. Ties: GM may pick either, or refer to flavor.</p>
+
+    <h3 class="section-heading">A.6 — Notation Reference</h3>
+    <table class="conversion-table notation-table">
+      <caption class="table-caption">Table A.8 — Dice Notation</caption>
+      <thead><tr><th>Notation</th><th>Means</th><th>Range</th></tr></thead>
+      <tbody>
+        <tr><td>1d6</td><td>Roll one six-sided die</td><td>1–6</td></tr>
+        <tr><td>2d12</td><td>Roll two twelve-sided dice individually</td><td>each 1–12</td></tr>
+        <tr><td>3d8</td><td>Roll three eight-sided dice individually</td><td>each 1–8</td></tr>
+        <tr><td>4d6</td><td>Roll four six-sided dice individually</td><td>each 1–6</td></tr>
+        <tr><td>6d4</td><td>Roll six four-sided dice individually</td><td>each 1–4</td></tr>
+        <tr><td>NdM</td><td>Roll N dice of M sides; <strong>track individual values</strong>, do not just sum</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>PKTTRPG always tracks individual die values, because banking and Standard moves use the actual value of each die, not just the sum.</p>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#ch-09">← Chapter IX: Economy</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#appendix-b">Next: Appendix B →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- APPENDIX B — HAND-RUNNABLE ALGORITHMS                                -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="appendix appendix-algorithms" id="appendix-b">
+  <header class="appendix-header">
+    <p class="appendix-letter">Appendix B</p>
+    <h2 class="appendix-title">Hand-Runnable Algorithms</h2>
+    <p class="appendix-blurb">Every PKTTRPG tool that lives in code has a paper twin here. If the computer is unavailable, every system in this manual can still be run with dice, pencil, and the tables in Appendix A.</p>
+  </header>
+
+  <article class="appendix-body">
+
+    <h3 class="section-heading">B.1 — Roll Dice (rollDice)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>rollDice(notation)</code> from <em>shared/js/stats.js</em>. Given a string like "3d8", produces a list of individual die values.</p>
+    <pre class="hand-algorithm" aria-label="rollDice procedure">
+PROCEDURE Roll-Dice (notation)
+  1. Read the notation. Split it on the letter "d".
+     Call the number before "d" the COUNT.
+     Call the number after "d" the SIDES.
+  2. Make an empty list called RESULTS.
+  3. Repeat COUNT times:
+       a. Roll one die with SIDES faces.
+       b. Write the result into RESULTS.
+  4. Return RESULTS.
+
+EXAMPLE  Roll-Dice("3d8")
+  COUNT = 3, SIDES = 8.
+  Roll three d8s: say 5, 2, 7.
+  Return [5, 2, 7]. (Do NOT sum unless a later step says to.)
+    </pre>
+
+    <h3 class="section-heading">B.2 — Convert a Single Stat (convertStat)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>convertStat(raw, isHP)</code>.</p>
+    <pre class="hand-algorithm" aria-label="convertStat procedure">
+PROCEDURE Convert-Stat (raw, is-HP?)
+  1. If is-HP? is TRUE:
+       Divide raw by 2.5.
+     Otherwise:
+       Divide raw by 10.
+  2. Round the result UP (the "ceiling" — any fractional part rounds up).
+  3. Return the rounded value. Do NOT apply any minimum.
+
+EXAMPLE  Convert-Stat(45, is-HP? = TRUE)
+  45 ÷ 2.5 = 18.0.  Round up: 18.  Return 18.
+
+EXAMPLE  Convert-Stat(49, is-HP? = FALSE)
+  49 ÷ 10 = 4.9.   Round up: 5.   Return 5.
+
+EXAMPLE  Convert-Stat(3, is-HP? = FALSE)
+  3 ÷ 10 = 0.3.    Round up: 1.   Return 1.
+  (For raw values 4 to 9, the ceiling also gives 1. That is correct.)
+
+Or just use Table A.2 / A.3 for instant lookups.
+    </pre>
+
+    <h3 class="section-heading">B.3 — Apply a Nature (applyNature)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>applyNature(stats, nature)</code>.</p>
+    <pre class="hand-algorithm" aria-label="applyNature procedure">
+PROCEDURE Apply-Nature (stats, nature)
+  1. If the nature is one of the five neutral natures
+     (Hardy, Docile, Serious, Bashful, Quirky):
+       Do nothing. Return stats unchanged.
+  2. Look up the nature's BOOST stat and REDUCE stat in Table A.4.
+  3. If BOOST is anything other than HP:
+       Add +2 to that stat on the sheet.
+  4. If REDUCE is anything other than HP:
+       Subtract −2 from that stat on the sheet.
+     (HP is NEVER modified by a Nature, regardless of the table.)
+  5. Return the modified stats.
+
+EXAMPLE  Apply-Nature(stats, Jolly)
+  Jolly: BOOST = SPD, REDUCE = S.ATK.
+  Add +2 to SPD; subtract 2 from S.ATK.
+  HP untouched.
+    </pre>
+
+    <h3 class="section-heading">B.4 — Generate a Pokémon (generateStats)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>generateStats(rawStats, nature)</code>. This is what the in-game Pokédex Generator tool does on the website.</p>
+    <pre class="hand-algorithm" aria-label="generateStats procedure">
+PROCEDURE Generate-Stats (raw-stats, optional nature)
+  1. Roll a Nature if one was not provided:
+       Roll 1d25 (or 1d100 ÷ 4, round up) and read Table A.4.
+  2. For each of the six stats (HP, ATK, DEF, S.ATK, S.DEF, SPD):
+       a. Convert it with Convert-Stat (B.2).
+          HP uses ÷2.5; the others use ÷10. Always round up. No floor.
+       b. Roll 1d6.
+       c. Add the d6 result to the converted stat.
+       d. Write BOTH the final stat AND the d6 result on the sheet.
+          (The d6 result is the "variance" and is PERMANENT — it never
+           changes, not even on evolution.)
+  3. Apply the Nature (B.3) to the resulting stats.
+  4. Done. The sheet now shows the playable stats.
+
+EXAMPLE  Generate-Stats(Bulbasaur raw, Jolly)
+  Raw:        HP 45,  ATK 49, DEF 49, S.ATK 65, S.DEF 65, SPD 45
+  Converted:  HP 18,  ATK 5,  DEF 5,  S.ATK 7,  S.DEF 7,  SPD 5
+  d6 rolls:        4       2       3        1         2       5
+  After +d6:  HP 22,  ATK 7,  DEF 8,  S.ATK 8,  S.DEF 9,  SPD 10
+  Apply Jolly (+SPD, −S.ATK):
+              HP 22,  ATK 7,  DEF 8,  S.ATK 6,  S.DEF 9,  SPD 12
+    </pre>
+
+    <h3 class="section-heading">B.5 — Re-derive on Evolution (reapplyOnEvolution)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>reapplyOnEvolution</code>. Same d6 rolls; new stage's raw stats; same Nature.</p>
+    <pre class="hand-algorithm" aria-label="reapplyOnEvolution procedure">
+PROCEDURE Re-Apply-On-Evolution (new-raw-stats, saved-d6-rolls, nature)
+  1. For each of the six stats:
+       a. Convert the NEW raw stat (B.2).
+       b. Add the SAVED d6 roll from the original capture.
+          (Do not roll a new d6. The d6 rolls are the Pokémon's permanent
+           personality and never change.)
+  2. Apply the Nature (B.3) to the resulting stats.
+  3. Refresh the dice pool to the new stage's tier (Table A.5).
+     All previously lost dice are recovered.
+  4. Done.
+    </pre>
+
+    <h3 class="section-heading">B.6 — Detect Role (detectRole)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>detectRole(rawStats)</code>. Run on RAW stats, not converted ones.</p>
+    <pre class="hand-algorithm" aria-label="detectRole procedure">
+PROCEDURE Detect-Role (raw-stats)
+  1. Using Table A.7, compute six sums on the species' RAW stats:
+       Defender    = HP   + DEF  + S.DEF
+       All-Rounder = ATK  + SPD  + DEF
+       Attacker    = S.ATK+ SPD  + S.DEF
+       Speedster   = ATK  + S.ATK+ SPD
+       Controller  = ATK  + DEF  + S.DEF
+       Supporter   = S.ATK+ DEF  + S.DEF
+  2. The role with the highest sum is the role.
+  3. If two sums tie, the GM picks based on the species' flavor.
+
+WHY RAW AND NOT CONVERTED?
+  PKTTRPG conversion divides HP by 2.5 and other stats by 10.
+  Converted HP is therefore 3–4× larger than other converted stats.
+  Summing converted stats would make the Defender triad (HP+DEF+S.DEF)
+  win for almost every species, which is wrong. On raw stats HP is still
+  usually the biggest of the six, but it does not dominate — bulky
+  species lean Defender, glass cannons lean Speedster, and so on.
+    </pre>
+
+    <h3 class="section-heading">B.7 — Standard Move Damage (damageStandard)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>damageStandard(dieValue, atk, def, typeMod)</code>.</p>
+    <pre class="hand-algorithm" aria-label="damageStandard procedure">
+PROCEDURE Standard-Damage (die-value, attacker-ATK, defender-DEF, type-mod)
+  1. Compute: die-value + attacker-ATK − defender-DEF + type-mod
+  2. If the result is less than 1, use 1 instead. (Minimum 1 damage.)
+  3. Return the result.
+
+NOTE ON MULTIPLE DICE
+  If the attacker spent two or more dice on Standard, run this
+  procedure ONCE PER SELECTED DIE, then sum the per-die results.
+
+EXAMPLE
+  Two dice spent: a 7 and a 5.  ATK 6, DEF 5, type-mod 0.
+  Per die: max(1, 7+6-5+0) = 8;  max(1, 5+6-5+0) = 6.
+  Total damage = 8 + 6 = 14.
+    </pre>
+
+    <h3 class="section-heading">B.8 — Special / Signature Damage (damageSpecial)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>damageSpecial(selectedDice, satk, sdef, typeMod)</code>.</p>
+    <pre class="hand-algorithm" aria-label="damageSpecial procedure">
+PROCEDURE Special-Damage (selected-dice, attacker-S.ATK, defender-S.DEF, type-mod)
+  1. Verify the move can fire:
+       Sum the values of the SELECTED dice (from fresh and/or bank).
+       If this sum is less than the move's energy threshold,
+       the move cannot fire. Stop.
+  2. Compute: sum-of-selected + attacker-S.ATK − defender-S.DEF + type-mod
+  3. If the result is less than 1, use 1 instead.
+  4. Apply Special / Signature pool effects:
+       Special: remove 1 die from the pool temporarily.
+       Signature: remove 2 dice from the pool temporarily.
+  5. Consume the spent dice (remove them from fresh and/or bank).
+  6. Return the damage.
+
+EXAMPLE
+  Selected: [6 from bank, 3 from fresh]. Threshold 6. S.ATK 7, S.DEF 5.
+  Sum = 9, which meets the threshold.
+  Damage = max(1, 9 + 7 - 5 + 0) = 11.
+    </pre>
+
+    <h3 class="section-heading">B.9 — Struggle</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Anti-soft-lock fallback. Always available.</p>
+    <pre class="hand-algorithm" aria-label="Struggle procedure">
+PROCEDURE Struggle (attacker, defender)
+  1. The attacker takes 4 damage.
+  2. The defender takes 4 damage.
+  3. No dice are consumed. No type modifier applies.
+    </pre>
+
+    <h3 class="section-heading">B.10 — Type Modifier (typeMod)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>typeMod(attackType, defenderTypes, chart)</code>.</p>
+    <pre class="hand-algorithm" aria-label="typeMod procedure">
+PROCEDURE Type-Modifier (attack-type, defender-types)
+  1. Start with MODIFIER = 0 and IMMUNE = false.
+  2. For each of the defender's types:
+       a. Look up: attack-type vs that defender-type in the type chart.
+       b. If the cell is "immune," set IMMUNE = true and stop the loop.
+       c. If the cell is "super effective," add +2 to MODIFIER.
+       d. If the cell is "not very effective," subtract 2 from MODIFIER.
+       e. If the cell is "neutral," do nothing.
+  3. If IMMUNE is true, the attack deals 0 damage — skip the damage
+     formula entirely.
+  4. Otherwise return MODIFIER.
+
+NOTE ON DUAL TYPES
+  Two types can stack: a Fire attack on a Grass+Bug defender adds +2 twice,
+  yielding +4 (whether to cap at +2 is in Appendix C — Pending). Until
+  Pending Reconciliation resolves, the GM may use either the stacked sum
+  or the rulebook's "+3 dual-effective / ±0 cancel" rule, but be consistent.
+    </pre>
+
+    <h3 class="section-heading">B.11 — Initiative</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>initiative(rolledDice, spd, modifiers)</code>.</p>
+    <pre class="hand-algorithm" aria-label="initiative procedure">
+PROCEDURE Initiative (rolled-dice-this-round, SPD, modifiers)
+  1. Sum the values of the dice rolled this round.
+  2. Add SPD (already converted, with Nature and EV applied).
+  3. Add any modifiers from held items, move priorities, status, etc.
+  4. Return the total. The Pokémon with the highest initiative acts first.
+  5. Ties: break on SPD first, then on GM discretion.
+
+EXAMPLE (Stage 1, rolled [3, 7, 5] on 3d8; SPD 12; +1 from held item)
+  Sum dice: 15. Add SPD: 27. Add held item: 28.  Initiative this round: 28.
+    </pre>
+
+    <h3 class="section-heading">B.12 — 1v1 Battle Round (the Simulator)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces the entire <em>battle/simulator-1v1.html</em> tool. This is the complete turn flow.</p>
+    <pre class="hand-algorithm" aria-label="1v1 simulator procedure">
+PROCEDURE Battle-Round (each Pokémon in play)
+  ROLL PHASE
+    1. Each Pokémon rolls its per-stage Roll/Round (Table A.5).
+       The dice are placed in the "fresh pool" beside the sheet.
+       The "bank" (from previous rounds) is untouched.
+
+  INITIATIVE
+    2. For each Pokémon, run procedure B.11 using the fresh dice.
+       Order the Pokémon by initiative, highest first.
+
+  ACTION PHASE  (in initiative order)
+    3. The trainer of the acting Pokémon picks dice to use.
+       Dice may come FROM EITHER the fresh pool OR the bank — mix freely.
+    4. The trainer declares one of:
+
+       (a) STANDARD MOVE  (e.g. Tackle)
+           - Requires at least 1 selected die.
+           - Damage: run B.7 once per selected die, then sum.
+           - Selected dice are CONSUMED (removed from pool/bank).
+           - No temporary pool penalty.
+
+       (b) SPECIAL MOVE  (e.g. Ember)
+           - Requires sum(selected dice) ≥ move's energy threshold.
+           - Damage: run B.8.
+           - Selected dice are CONSUMED.
+           - Temporarily remove 1 additional die from pool.
+
+       (c) SIGNATURE MOVE  (e.g. Hydro Pump)
+           - Requires sum(selected dice) ≥ move's (usually higher) threshold.
+           - Damage: run B.8.
+           - Selected dice are CONSUMED.
+           - Temporarily remove 2 additional dice from pool.
+
+       (d) BANK
+           - Move some or all selected fresh dice into the bank.
+           - Cannot exceed the bank cap (Table A.5).
+           - Banked dice preserve their face values.
+
+       (e) STRUGGLE  (always available)
+           - Run B.9. Both Pokémon take 4 damage. Nothing is consumed.
+
+       (f) END TURN
+           - Do nothing this round. Pass to the next combatant.
+
+  MINION-WAVE PHASE
+    5. (If minions are present) Resolve wave per Chapter VII rules.
+
+  UPKEEP PHASE
+    6. Tick any status conditions on each Pokémon.
+    7. Award Global XP and Personal XP per Chapter IX § 1.
+    8. Check evolution thresholds. Any Pokémon at threshold evolves
+       NOW: re-derive its stats with B.5 and refresh the pool to the
+       new tier (Table A.5).
+    9. Begin a new round.
+
+ANTI-SOFT-LOCK GUARANTEE
+  If a Pokémon ever has zero usable dice in both fresh and bank, it can
+  still STRUGGLE every round. Combat will end in finite time.
+    </pre>
+
+    <h3 class="section-heading">B.13 — Random Pokémon Generator (the Generator)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <em>pokedex/generator.html</em>.</p>
+    <pre class="hand-algorithm" aria-label="random Pokémon generator procedure">
+PROCEDURE Generate-Random-Pokémon
+  1. Choose a species and stage (GM call or 1d151 for Kanto + lookup).
+  2. Look up that species' raw base stats from the Pokédex source.
+  3. Roll a Nature (1d25 → Table A.4).
+  4. Run B.4 (Generate-Stats) with the raw stats and the Nature.
+  5. Run B.6 to detect role from raw stats and write it on the sheet.
+  6. Look up the dice pool for the stage (Table A.5).
+  7. Note: starting fresh and bank pools are both empty until battle.
+    </pre>
+
+    <h3 class="section-heading">B.14 — Capture Roll Resolution</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces the JS in <em>rulebook/capture.html</em>.</p>
+    <pre class="hand-algorithm" aria-label="capture roll procedure">
+PROCEDURE Capture-Attempt (ball, target Pokémon, HP-state, status, rarity-class)
+  1. If the target is fainted, the capture fails. (Uncatchable.)
+  2. Compute the THRESHOLD:
+       THRESHOLD = base-threshold-for-species
+                 + HP-state-modifier      (Table 8.2)
+                 + status-modifier        (Table 8.2)
+                 + rarity-class-modifier  (Table 8.3)
+     The base-threshold for a species is its "standard difficulty"
+     before any state. Until per-species values exist, use 10 as a
+     working default for unfamiliar wild Pokémon.
+  3. Determine BALL DICE (Table 8.1):
+       Poké Ball  = 3d6
+       Great Ball = 2d6
+       Ultra Ball = 1d6
+       Master Ball = automatic catch — skip to step 6.
+  4. Roll the ball dice. Sum them.
+  5. If the SUM is LESS THAN the THRESHOLD, the catch succeeds.
+     If the SUM is EQUAL or GREATER, the catch fails.
+  6. On success, the Pokémon is captured. Run B.13 (or B.4) to
+     finalize its sheet with Nature, variance, and role.
+
+EXAMPLE (Poké Ball on a half-HP, Paralysis, Uncommon target,
+         base difficulty 10)
+  Threshold = 10 + 4 (half HP) + 3 (paralysis) − 2 (uncommon) = 15.
+  Roll 3d6: say 4 + 5 + 1 = 10. 10 < 15, so the catch succeeds.
+    </pre>
+
+    <h3 class="section-heading">B.15 — Trainer Battle Payout</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces the JS in <em>rulebook/economy.html</em>.</p>
+    <pre class="hand-algorithm" aria-label="trainer payout procedure">
+PROCEDURE Compute-Payout (defeated-trainer)
+  1. Look up the defeated trainer's archetype scalar A (Table 9.1).
+  2. For each Pokémon in their party:
+       Compute L = level. Divide L by 10 and ROUND UP. Multiply by 100.
+       Call this the per-Pokémon contribution.
+  3. SUM the per-Pokémon contributions.
+  4. Multiply the sum by A.
+  5. Result is the money the players win.
+
+EXAMPLE  (Defeated a Tamer with party: levels 22, 14, 30)
+  A = 3.
+  Per-Pokémon:  ⌈22/10⌉ × 100 = 300
+                ⌈14/10⌉ × 100 = 200
+                ⌈30/10⌉ × 100 = 300
+  Sum = 800.   Payout = 800 × 3 = $2,400.
+    </pre>
+
+    <h3 class="section-heading">B.16 — Minion Wave Escalation</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces any wave-escalation logic.</p>
+    <pre class="hand-algorithm" aria-label="wave escalation procedure">
+PROCEDURE Escalate-Wave (current wave, new Global XP)
+  1. Track the team's combined Global XP (Chapter IX).
+  2. Every time Global XP crosses a multiple of 30:
+       a. Add one new T1 minion to the wave.
+       b. After adding, check every tier (T1, T2, T3):
+            - If any tier has MORE THAN three units,
+              remove three of them and add one unit of the next tier.
+            - If T3 has more than three, the next tier is "Field Behemoth."
+              Per Chapter VII, when three T3s exist simultaneously,
+              a Field Behemoth spawns automatically.
+       c. Cascade merges — keep checking until no tier has more than three.
+  3. Done. Resume play.
+    </pre>
+
+    <h3 class="section-heading">B.17 — Sprite Path Lookup</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <code>spritePath</code> from <em>shared/js/sprites.js</em>. This is for tables that print a Pokémon's picture from a binder; the algorithm tells the GM which sheet to flip to.</p>
+    <pre class="hand-algorithm" aria-label="sprite path procedure">
+PROCEDURE Find-Sprite (id, optional form-name, optional mega-flag, optional mega-variant)
+  1. Drop any leading zeros from the id. ("001" → "1", "025" → "25".)
+  2. If the Pokémon is in MEGA form:
+       a. If a mega variant is specified ("X" or "Y"), look up
+          {id}-mega-{variant}.png  (e.g. 6-mega-x.png).
+       b. Otherwise look up {id}-mega.png.
+       Stop.
+  3. If a form name is given AND the form is NOT a regional variant:
+       Look up {id}-{form-name-lowercased-with-hyphens}.png
+       (e.g. 25-cosplay.png; 201-a.png for Unown letter A).
+       Stop.
+  4. Otherwise look up the base sheet: {id}.png.
+  5. If the looked-up sheet doesn't exist in the binder, fall back to
+     the base sheet.
+
+NOTE — REGIONAL VARIANTS
+  Kanto, Alola, Galar, Hisui, Paldea, etc. fall through to the base sheet
+  unless the binder includes a dedicated regional sheet.
+    </pre>
+
+    <h3 class="section-heading">B.18 — Trainer Roster (the Roster Manager)</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <em>trainers/index.html</em>'s localStorage-based capture/export/import.</p>
+    <pre class="hand-algorithm" aria-label="roster manager procedure">
+PROCEDURE Roster-At-The-Table
+  CAPTURE
+    1. When a Pokémon is captured, fill out a Pokémon sheet
+       (use Generate-Stats B.4 to produce the playable numbers).
+    2. Tape the sheet onto the back of the trainer card.
+
+  EXPORT  (sharing a trainer between players)
+    1. Photograph or photocopy the trainer card and all attached
+       Pokémon sheets.
+    2. Hand the copy to the other player.
+       (The "Trainer Code" in the JS tool is a Base64-encoded JSON
+       blob of the same information; the table equivalent is a photo.)
+
+  IMPORT
+    1. Receive the photocopy. Transcribe onto a fresh card.
+    2. The receiving player owns this trainer for the duration of the
+       handoff. Do not double-import — the original player's copy is
+       no longer canonical until handed back.
+
+  BACKUP
+    1. The website serializes the roster to JSON for later restore.
+       At the table, the equivalent is keeping a binder of sheets with
+       date-of-session in the corner.
+    </pre>
+
+    <h3 class="section-heading">B.19 — Pokédex Carousel &amp; Search</h3>
+    <p class="algorithm-purpose"><strong>Purpose:</strong> Replaces <em>pokedex/index.html</em>'s carousel.</p>
+    <pre class="hand-algorithm" aria-label="pokedex carousel procedure">
+PROCEDURE Find-A-Species (search-text or type-filter)
+  ORGANIZATION  (the carousel sorts by stage; do the same on paper)
+    Maintain three section dividers in the binder:
+      Stage 1 (base forms)
+      Stage 2 (mid evolutions)
+      Stage 3 (final evolutions)
+    Babies (Stage 0) live behind a fourth divider at the back since
+    they are casual-only.
+
+  SEARCH BY NAME
+    1. Look up the leading letter alphabetically.
+    2. Flip through that letter's pages.
+
+  FILTER BY TYPE
+    1. Each species sheet's top-right tag lists its type(s).
+    2. Scan only sheets bearing the requested type.
+
+  DETAIL VIEW
+    1. The detail "modal" in the website corresponds to the back of
+       each sheet: stats, abilities, evolution chart, sprite.
+    </pre>
+
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#appendix-a">← Appendix A</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#appendix-c">Next: Appendix C →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- APPENDIX C — PENDING RECONCILIATION                                  -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="appendix appendix-pending" id="appendix-c">
+  <header class="appendix-header">
+    <p class="appendix-letter">Appendix C</p>
+    <h2 class="appendix-title">Open Questions &amp; Pending Reconciliation</h2>
+    <p class="appendix-blurb">A short list of items that are documented inconsistently across files and need a single canonical answer — once movesets are designed.</p>
+  </header>
+
+  <article class="appendix-body">
+    <table class="lore-table pending-table">
+      <caption class="table-caption">Table C.1 — Pending Items</caption>
+      <thead><tr><th>Item</th><th>Conflict</th><th>Disposition</th></tr></thead>
+      <tbody>
+        <tr><td>Special / Signature damage formula</td><td>Design doc says <code>sum(banked) + S.ATK − S.DEF</code>; rulebook page says <code>base_power + S.ATK − S.DEF</code>. Simulator uses the design-doc form.</td><td>Canon = banked-sum (simulator-aligned). Rulebook to be edited.</td></tr>
+        <tr><td>"Generic Special" action</td><td>Rulebook describes a free <code>die + S.ATK − S.DEF</code> attack with no consumption. Design doc has no such action.</td><td>Probably remove during the moveset design pass.</td></tr>
+        <tr><td>Dual-type modifier stacking</td><td>Rulebook adds +3 for double-effective and ±0 for cancel. Design doc is silent.</td><td>Likely keep; will pair with resistances once both are formalized.</td></tr>
+        <tr><td>Resistances</td><td>No system documented anywhere.</td><td>Add during the moveset / type-chart pass.</td></tr>
+        <tr><td>Move costs per role</td><td>Simulator hardcodes <code>Tackle / Ember / Hydro Pump</code> at 0 / 3 / 6. <em>data/moves.json</em> has different costs per move.</td><td>Wire simulator to <em>moves.json</em> only after movesets are designed and balanced.</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#appendix-b">← Appendix B</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#appendix-d">Next: Appendix D →</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- APPENDIX D — GLOSSARY                                                -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<section class="appendix appendix-glossary" id="appendix-d">
+  <header class="appendix-header">
+    <p class="appendix-letter">Appendix D</p>
+    <h2 class="appendix-title">Glossary</h2>
+  </header>
+
+  <article class="appendix-body">
+    <dl class="glossary-list">
+      <dt class="glossary-term">Bank / Banking</dt>
+      <dd class="glossary-def">Moving fresh dice into a persistent storage area between rounds. Banked dice preserve their values and can be selected for any move later, mixed with fresh dice if desired.</dd>
+
+      <dt class="glossary-term">Catch Threshold</dt>
+      <dd class="glossary-def">The number a capture roll must come in <em>under</em> to succeed. Modified by HP state, status, and rarity.</dd>
+
+      <dt class="glossary-term">Exhausted Dice</dt>
+      <dd class="glossary-def">Dice permanently lost from a Pokémon's pool (via Fainting or voluntary Return to Base). Recovered only on evolution.</dd>
+
+      <dt class="glossary-term">Field Behemoth</dt>
+      <dd class="glossary-def">A neutral boss that spawns automatically when three Tier-3 minions exist simultaneously.</dd>
+
+      <dt class="glossary-term">Fresh Dice</dt>
+      <dd class="glossary-def">Dice rolled this round, available for any allocation (Standard, Special, Signature, banking, or jungle).</dd>
+
+      <dt class="glossary-term">Gym Leader</dt>
+      <dd class="glossary-def">NPC opponent who wins by attrition. Gym Leader Pokémon do not permanently lose dice.</dd>
+
+      <dt class="glossary-term">Jungle</dt>
+      <dd class="glossary-def">Non-spatial layer where Pokémon accumulate Reach and Exposure remotely; covered in Chapter VI.</dd>
+
+      <dt class="glossary-term">Minion Wave</dt>
+      <dd class="glossary-def">Scaling enemy force that grows through the three-into-one merge mechanic on every 30 Global XP.</dd>
+
+      <dt class="glossary-term">Nature</dt>
+      <dd class="glossary-def">One of 25 personality types; applies +2 to one stat and −2 to another (five are neutral). Never modifies HP.</dd>
+
+      <dt class="glossary-term">Pool</dt>
+      <dd class="glossary-def">The total number of dice a Pokémon has available across the entire battle. Refreshes fully on evolution.</dd>
+
+      <dt class="glossary-term">Reach</dt>
+      <dd class="glossary-def">Jungle resource that gates encounter difficulty. Resets between matches.</dd>
+
+      <dt class="glossary-term">Role</dt>
+      <dd class="glossary-def">Classification of a Pokémon based on its highest-summing stat triad. Six roles total.</dd>
+
+      <dt class="glossary-term">Spirit Walk</dt>
+      <dd class="glossary-def">Mechanic learned at the Ghost Gym (CK) that allows invisible passage through certain gates. Required for the Channeler's Secret Power trait.</dd>
+
+      <dt class="glossary-term">Struggle</dt>
+      <dd class="glossary-def">Anti-soft-lock move. Always available. Deals 4 damage to both Pokémon. Consumes no dice.</dd>
+
+      <dt class="glossary-term">Tier 1 / Tier 2</dt>
+      <dd class="glossary-def">Campaign narrative split. Tier 1 is the visible story; Tier 2 is the hidden HAPPINY-conspiracy truth. Both are canon simultaneously.</dd>
+    </dl>
+  </article>
+
+  <nav class="chapter-nav chapter-nav-bottom">
+    <a class="nav-link nav-link-prev" href="#appendix-c">← Appendix C</a>
+    <a class="nav-link nav-link-index" href="#index">Index</a>
+    <a class="nav-link nav-link-next" href="#cover">↑ Top of Manual</a>
+  </nav>
+</section>
+
+<hr class="page-break">
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- COLOPHON                                                             -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+
+<footer class="manual-footer colophon" id="colophon">
+  <p>This manual was compiled on 23 June 2026 from <cite>DESIGN_DOCUMENT.md</cite> (canonical revision of 13 May 2026) and the project's active <cite>IMPLEMENTATION_WORKFLOW.md</cite>. It is intentionally CSS-free and JavaScript-free; every functional system reachable on the website is reproduced as a paper algorithm in <a href="#appendix-b">Appendix B</a>.</p>
+  <p><a href="#index" class="nav-link nav-link-top">Return to the Index</a></p>
+</footer>
+
+</body>
+</html>
