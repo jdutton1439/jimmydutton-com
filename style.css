@@ -103,7 +103,7 @@ body {
 }
 
 header, main, footer {
-  width: var(--line-measure);
+  width: min(var(--line-measure), 100%);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -173,6 +173,7 @@ hr {
 
 pre {
   font-family: var(--font-body);
+  overflow-x: auto;
 }
 
 a {
