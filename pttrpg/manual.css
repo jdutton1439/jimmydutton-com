@@ -1,0 +1,727 @@
+/* ════════════════════════════════════════════════════════════════════
+   PKTTRPG — Field Manual stylesheet (barebones)
+   Palette: navy ground · gold branding · soft-white text · red/yellow accents
+   Targets the semantic class hooks defined in manual.html.
+   ════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Ground & ink */
+  --navy:           #0e1a3b;  /* page background */
+  --navy-deep:      #08122c;  /* deepest accents, pre blocks */
+  --navy-card:      #142450;  /* aside / callout / formula backgrounds */
+  --navy-rule:      #2a3d6f;  /* default borders */
+
+  /* Branding */
+  --gold:           #e6b939;  /* primary brand color — titles, H1s */
+  --gold-soft:      #f3d77a;  /* hover, secondary emphasis */
+  --gold-rule:      #b7901e;  /* darker gold for borders under gold text */
+
+  /* Text */
+  --softwhite:      #f5efe1;  /* primary text */
+  --softwhite-dim:  #c5bda9;  /* captions, secondary text */
+  --softwhite-mute: #8d8978;  /* footnotes, deeply secondary */
+
+  /* Accents */
+  --red:            #d24330;  /* alert / red accent */
+  --red-deep:       #8a2419;  /* darker red borders */
+  --yellow:         #f7d046;  /* subtitle / in-progress / announcement */
+  --yellow-deep:    #c8a01a;  /* darker yellow borders */
+  --green-leaf:     #4a9d52;  /* completed status (subdued green) */
+
+  /* Type face stacks */
+  --font-serif:     Georgia, "Times New Roman", "Iowan Old Style", serif;
+  --font-sans:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:      "Courier New", Consolas, "Liberation Mono", monospace;
+
+  /* Layout */
+  --page-max:       960px;
+  --gutter:         24px;
+  --radius:         4px;
+  --radius-lg:      8px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   PAGE GROUND
+   ────────────────────────────────────────────────────────────────────── */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+  color: var(--softwhite);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+body.manual-root {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 96px;
+}
+
+/* Reset link colors to the palette */
+a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-rule);
+}
+a:hover { color: var(--gold-soft); border-bottom-style: solid; }
+a:visited { color: var(--gold); }
+
+/* Generic prose */
+p { margin: 0 0 14px; }
+em { color: var(--softwhite); font-style: italic; }
+strong { color: var(--gold-soft); font-weight: 700; }
+cite { color: var(--yellow); font-style: italic; }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--navy-deep);
+  color: var(--yellow);
+  padding: 1px 5px;
+  border-radius: 2px;
+  border: 1px solid var(--navy-rule);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   COVER PAGE
+   ────────────────────────────────────────────────────────────────────── */
+
+.cover-page {
+  text-align: center;
+  padding: 64px 24px 48px;
+  margin-bottom: 32px;
+  border: 3px double var(--gold);
+  background: linear-gradient(180deg, var(--navy-card) 0%, var(--navy) 100%);
+  border-radius: var(--radius-lg);
+}
+
+.cover-eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  color: var(--yellow);
+  margin-bottom: 18px;
+}
+
+.manual-title {
+  font-family: var(--font-serif);
+  font-size: 88px;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin: 8px 0 4px;
+  text-shadow: 0 2px 0 var(--red-deep), 0 0 24px rgba(230, 185, 57, 0.25);
+}
+
+.manual-subtitle {
+  font-size: 20px;
+  color: var(--softwhite);
+  font-style: italic;
+  margin: 0 0 32px;
+}
+
+.manual-credits {
+  color: var(--softwhite-dim);
+  font-size: 14px;
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.cover-nav {
+  margin: 32px 0 16px;
+}
+
+.cover-disclaimer {
+  font-size: 12px;
+  color: var(--softwhite-mute);
+  margin-top: 32px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   PAGE BREAKS  (the <hr> dividers between chapters)
+   ────────────────────────────────────────────────────────────────────── */
+
+hr.page-break {
+  border: none;
+  height: 18px;
+  margin: 56px 0;
+  background:
+    radial-gradient(circle, var(--gold) 0, var(--gold) 3px, transparent 4px) center / 24px 18px no-repeat,
+    linear-gradient(90deg, transparent 0, var(--gold-rule) 12%, var(--gold-rule) 88%, transparent 100%) center / 100% 1px no-repeat;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   INDEX  (table of contents)
+   ────────────────────────────────────────────────────────────────────── */
+
+.manual-index {
+  background: var(--navy-card);
+  border: 2px solid var(--yellow);
+  border-radius: var(--radius-lg);
+  padding: 32px 40px;
+  margin-bottom: 32px;
+}
+
+.index-title {
+  color: var(--gold);
+  font-size: 36px;
+  margin: 0 0 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--gold-rule);
+  padding-bottom: 12px;
+}
+
+.index-blurb {
+  color: var(--softwhite-dim);
+  font-style: italic;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.index-subtitle {
+  color: var(--yellow);
+  margin: 24px 0 8px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px dashed var(--yellow-deep);
+  padding-bottom: 6px;
+}
+
+.index-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.index-entry {
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--navy-rule);
+  counter-increment: index-counter;
+  position: relative;
+  padding-left: 32px;
+}
+
+.index-entry::before {
+  content: counter(index-counter);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 24px;
+  text-align: right;
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.appendix-index { counter-reset: index-counter; }
+.appendix-index .index-entry::before {
+  content: counter(index-counter, upper-alpha);
+}
+
+.chapter-index { counter-reset: index-counter; }
+
+.index-entry a {
+  border-bottom: none;
+  color: var(--softwhite);
+  font-size: 17px;
+}
+
+.index-entry a:hover {
+  color: var(--gold);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   CHAPTER & APPENDIX HEADERS
+   ────────────────────────────────────────────────────────────────────── */
+
+.chapter, .appendix {
+  margin-bottom: 32px;
+}
+
+.chapter-header, .appendix-header {
+  text-align: center;
+  padding: 24px 16px 28px;
+  margin-bottom: 24px;
+  border-bottom: 3px double var(--gold);
+}
+
+.chapter-number, .appendix-letter {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  color: var(--yellow);
+  margin: 0 0 6px;
+}
+
+.chapter-title, .appendix-title {
+  font-size: 40px;
+  color: var(--gold);
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+}
+
+.chapter-blurb, .appendix-blurb {
+  color: var(--softwhite-dim);
+  font-style: italic;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   STATUS BOARD  (the aside at the top of every chapter)
+   ────────────────────────────────────────────────────────────────────── */
+
+.chapter-status {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-rule);
+  border-left: 6px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  margin: 0 0 32px;
+}
+
+.status-heading {
+  color: var(--yellow);
+  font-size: 14px;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.status-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.status {
+  padding: 10px 14px 10px 36px;
+  margin-bottom: 8px;
+  position: relative;
+  border-radius: var(--radius);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.status::before {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.status-done {
+  background: rgba(74, 157, 82, 0.15);
+  border-left: 3px solid var(--green-leaf);
+}
+.status-done::before { content: "✓"; color: var(--green-leaf); }
+.status-done strong { color: var(--green-leaf); }
+
+.status-in-progress {
+  background: rgba(247, 208, 70, 0.12);
+  border-left: 3px solid var(--yellow);
+}
+.status-in-progress::before { content: "→"; color: var(--yellow); }
+.status-in-progress strong { color: var(--yellow); }
+
+.status-planned {
+  background: rgba(210, 67, 48, 0.12);
+  border-left: 3px solid var(--red);
+}
+.status-planned::before { content: "○"; color: var(--red); }
+.status-planned strong { color: var(--red); }
+
+/* ──────────────────────────────────────────────────────────────────────
+   CHAPTER BODY HEADINGS
+   ────────────────────────────────────────────────────────────────────── */
+
+.section-heading {
+  color: var(--gold);
+  font-size: 26px;
+  margin: 36px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gold-rule);
+}
+
+.subsection-heading {
+  color: var(--yellow);
+  font-size: 18px;
+  margin: 24px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   TABLES
+   ────────────────────────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  background: var(--navy-card);
+  border: 2px solid var(--gold-rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+caption.table-caption {
+  caption-side: top;
+  text-align: left;
+  color: var(--yellow);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 8px 4px;
+}
+
+thead {
+  background: var(--navy-deep);
+  border-bottom: 2px solid var(--gold);
+}
+
+th {
+  color: var(--gold);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--gold-rule);
+}
+
+td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--navy-rule);
+  vertical-align: top;
+  font-size: 15px;
+}
+
+tbody tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+tbody tr:hover td {
+  background: rgba(247, 208, 70, 0.08);
+}
+
+/* Conversion tables in Appendix A get a slightly hotter trim */
+.conversion-table {
+  border-color: var(--yellow-deep);
+}
+.conversion-table th {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow-deep);
+}
+
+/* Pending table — reddish trim because these are the open questions */
+.pending-table {
+  border-color: var(--red-deep);
+}
+.pending-table th {
+  color: var(--red);
+  border-bottom-color: var(--red-deep);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   LORE CALLOUTS  (blockquotes with Tier 1 / Tier 2 / Behemoth flavors)
+   ────────────────────────────────────────────────────────────────────── */
+
+.lore-callout {
+  margin: 20px 0;
+  padding: 18px 24px;
+  background: var(--navy-card);
+  border-left: 6px solid var(--yellow);
+  border-radius: var(--radius);
+  font-style: italic;
+  color: var(--softwhite);
+  position: relative;
+}
+
+.lore-callout::before {
+  content: "❝";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 36px;
+  color: var(--gold);
+  opacity: 0.4;
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
+.tier-1-callout {
+  border-left-color: var(--yellow);
+}
+
+.tier-2-callout {
+  border-left-color: var(--red);
+  background: linear-gradient(180deg, var(--navy-card) 0%, rgba(138, 36, 25, 0.18) 100%);
+}
+.tier-2-callout::before { color: var(--red); }
+
+.behemoth-callout {
+  border-left-color: var(--red-deep);
+  border-right: 6px solid var(--red-deep);
+  background: linear-gradient(135deg, var(--navy-card) 0%, rgba(138, 36, 25, 0.25) 100%);
+}
+.behemoth-callout::before { color: var(--red); }
+
+/* ──────────────────────────────────────────────────────────────────────
+   FORMULA BOXES
+   ────────────────────────────────────────────────────────────────────── */
+
+.formula-box {
+  background: var(--navy-deep);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.formula-label {
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+
+.formula-expression {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--gold-soft);
+  margin: 8px 0;
+  padding: 6px 12px;
+}
+
+.formula-note {
+  color: var(--softwhite-dim);
+  font-size: 14px;
+  text-align: left;
+  font-style: italic;
+  margin: 12px 0 0;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   HAND-ALGORITHM PRE BLOCKS  (Appendix B)
+   ────────────────────────────────────────────────────────────────────── */
+
+.hand-algorithm {
+  background: var(--navy-deep);
+  border: 1px solid var(--gold-rule);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 16px 0 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--softwhite);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.algorithm-purpose {
+  color: var(--softwhite-dim);
+  font-size: 14px;
+  margin: 8px 0;
+  padding-left: 8px;
+  border-left: 2px solid var(--yellow);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   CHAPTER NAV (bottom of every section)
+   ────────────────────────────────────────────────────────────────────── */
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0 8px;
+  padding: 16px 20px;
+  background: var(--navy-card);
+  border-top: 2px solid var(--gold-rule);
+  border-bottom: 2px solid var(--gold-rule);
+  border-radius: var(--radius);
+}
+
+.nav-link {
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: none;
+  padding: 4px 10px;
+}
+
+.nav-link:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: var(--radius);
+}
+
+.nav-link-index {
+  color: var(--yellow);
+}
+
+.nav-link-primary {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  display: inline-block;
+}
+.nav-link-primary:hover {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   LISTS  (XP, evolution, phases, traits, glossary, etc.)
+   ────────────────────────────────────────────────────────────────────── */
+
+.xp-list, .evolution-list, .wincon-list, .phase-list,
+.trait-list, .jungle-encounter-list {
+  padding-left: 24px;
+}
+
+.xp-list li, .evolution-list li, .wincon-list li,
+.jungle-encounter-list li {
+  margin-bottom: 6px;
+}
+
+.phase-list { list-style: none; padding-left: 0; counter-reset: phase; }
+.phase-list .phase {
+  counter-increment: phase;
+  margin-bottom: 14px;
+  padding: 12px 16px 12px 56px;
+  background: var(--navy-card);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  position: relative;
+}
+.phase-list .phase::before {
+  content: counter(phase);
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.trait-list { list-style: none; padding-left: 0; }
+.trait { padding: 8px 14px; margin-bottom: 6px; border-radius: var(--radius); }
+.trait-fixed {
+  background: rgba(247, 208, 70, 0.10);
+  border-left: 3px solid var(--yellow);
+}
+.trait-scaling {
+  background: rgba(74, 157, 82, 0.10);
+  border-left: 3px solid var(--green-leaf);
+}
+
+/* Archetype cards */
+.archetype-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-rule);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.archetype-name {
+  color: var(--gold);
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+/* Definition lists (plot mechanics, jungle resources, glossary) */
+.plot-mechanic-list, .jungle-resource-list, .glossary-list {
+  margin: 16px 0;
+}
+
+.plot-mechanic-term, .resource-term, .glossary-term {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 18px;
+  font-family: var(--font-serif);
+}
+
+.plot-mechanic-def, .resource-def, .glossary-def {
+  margin: 4px 0 12px 18px;
+  color: var(--softwhite);
+  font-size: 15px;
+  padding-left: 12px;
+  border-left: 2px solid var(--navy-rule);
+}
+
+/* Resource-specific accent strips */
+.resource-reach   + .resource-def { border-left-color: var(--green-leaf); }
+.resource-exposure + .resource-def { border-left-color: var(--red); }
+.resource-stability + .resource-def { border-left-color: var(--yellow); }
+
+/* ──────────────────────────────────────────────────────────────────────
+   FOOTNOTE & MISC
+   ────────────────────────────────────────────────────────────────────── */
+
+.footnote {
+  font-size: 13px;
+  color: var(--softwhite-mute);
+  font-style: italic;
+  margin: 8px 0 20px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   COLOPHON
+   ────────────────────────────────────────────────────────────────────── */
+
+.colophon {
+  margin-top: 56px;
+  padding: 28px 24px;
+  background: var(--navy-card);
+  border: 1px dashed var(--gold-rule);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--softwhite-dim);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.colophon a { font-style: normal; }
+
+/* ──────────────────────────────────────────────────────────────────────
+   RESPONSIVE  (kept minimal — the manual is a long single column)
+   ────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  body.manual-root { padding: 24px 14px 64px; }
+  .manual-title { font-size: 56px; }
+  .chapter-title, .appendix-title { font-size: 28px; }
+  .cover-page { padding: 36px 14px; }
+  .manual-index { padding: 20px 18px; }
+  .chapter-nav {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    text-align: center;
+  }
+  .formula-expression { font-size: 17px; }
+  .hand-algorithm { font-size: 12px; padding: 14px 16px; }
+  th, td { font-size: 13px; padding: 6px 8px; }
+}
