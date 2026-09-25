@@ -208,6 +208,10 @@ blockquote {
   border-radius: 2px solid var(--color-accent-sienna);
 }
 
+q {
+  color: var(--color-accent-sienna);
+}
+
 .skip-link {
   position: absolute;
   top: -100%;
@@ -314,4 +318,9 @@ blockquote {
   font-family: var(--font-header);
   font-size: var(--scale-wordmark);
   text-decoration: none;
+}
+
+#signoff {
+  font-family: var(--font-header);
+  color: var(--color-attention);
 }
